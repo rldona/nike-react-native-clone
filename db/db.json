@@ -1,0 +1,46 @@
+{
+  "products": {
+    "man": {},
+    "woman": {},
+    "kids": {}
+  },
+  "menu": [
+    {
+      "id": 0,
+      "title": "Productos nuevos y destacados"
+    },
+    {
+      "id": 1,
+      "title": "Zapatillas"
+    },
+    {
+      "id": 2,
+      "title": "Ropa"
+    },
+    {
+      "id": 3,
+      "title": "Ofertas"
+    },
+    {
+      "id": 4,
+      "title": "Acceso para Members"
+    }
+  ],
+  "genres": [
+    {
+      "id": 0,
+      "type": "man",
+      "name": "Hombre"
+    },
+    {
+      "id": 1,
+      "type": "woman",
+      "name": "Mujer"
+    },
+    {
+      "id": 2,
+      "type": "kids",
+      "name": "Niño/a"
+    }
+  ]
+}

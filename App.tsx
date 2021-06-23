@@ -1,22 +1,38 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, Text} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
-import {H1} from './src/components/H1';
-import {ProductMenu} from './src/components/ProductMenu';
+import {CatalogScreen} from './src/screens/Catalog';
 
-const App = () => {
+const Stack = createStackNavigator();
+
+export const App = () => {
   return (
-    <View style={styles.container}>
-      <H1>Tienda</H1>
-      <ProductMenu />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerTitleStyle: {color: '#2196f3'},
+          cardStyle: {backgroundColor: '#FFF'},
+          headerStyle: {shadowColor: 'transparent'},
+        }}>
+        <Stack.Screen
+          name="Home"
+          component={CatalogScreen}
+          options={{
+            title: '',
+            headerRight: () => <Text style={styles.text}>[Icon Search]</Text>,
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  text: {
+    fontSize: 20,
+    marginRight: 20,
   },
 });
-
-export default App;
