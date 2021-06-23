@@ -1,10 +1,9 @@
 # Nike React Native clone
 
-
 ### Start local db server
 
 ```terminal
-json-server --watch ./db/db.json
+yarn serve-database
 ```
 
 ### Start the application
