@@ -1,6 +1,8 @@
 import React from 'react';
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 
+import Icon from 'react-native-vector-icons/EvilIcons';
+
 import {H1} from '../../components/H1';
 import {H2} from '../../components/H2';
 import {ProductMenu} from '../../components/ProductMenu';
@@ -11,7 +13,7 @@ const Stack = createStackNavigator();
 
 export const CatalogContent = () => {
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
       <View style={styles.paddingLateral}>
         <H1>Tienda</H1>
       </View>
@@ -37,7 +39,11 @@ export const CatalogScreen = () => {
         component={CatalogContent}
         options={{
           title: '',
-          headerRight: () => <Text style={styles.text}>[Icon Search]</Text>,
+          headerRight: () => (
+            <Text style={styles.text}>
+              <Icon name="search" size={30} color="#000" />
+            </Text>
+          ),
         }}
       />
     </Stack.Navigator>
