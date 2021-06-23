@@ -1,12 +1,15 @@
 import React from 'react';
-import {ScrollView, StyleSheet, View} from 'react-native';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
 
 import {H1} from '../../components/H1';
 import {H2} from '../../components/H2';
 import {ProductMenu} from '../../components/ProductMenu';
 import {GenreSelector} from '../../components/GenreSelector';
+import {createStackNavigator} from '@react-navigation/stack';
 
-export const CatalogScreen = () => {
+const Stack = createStackNavigator();
+
+export const CatalogContent = () => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.paddingLateral}>
@@ -18,6 +21,26 @@ export const CatalogScreen = () => {
       </View>
       <ProductMenu />
     </ScrollView>
+  );
+};
+
+export const CatalogScreen = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerTitleStyle: {color: '#2196f3'},
+        cardStyle: {backgroundColor: '#FFF'},
+        headerStyle: {shadowColor: 'transparent'},
+      }}>
+      <Stack.Screen
+        name="Home"
+        component={CatalogContent}
+        options={{
+          title: '',
+          headerRight: () => <Text style={styles.text}>[Icon Search]</Text>,
+        }}
+      />
+    </Stack.Navigator>
   );
 };
 
