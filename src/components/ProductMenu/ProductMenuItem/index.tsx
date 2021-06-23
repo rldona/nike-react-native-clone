@@ -1,9 +1,9 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-import {ProductMenu} from '../../../models/index';
+import {IProductMenu} from '../../../models/index';
 
-export const ProductMenuItem = ({title}: ProductMenu) => {
+export const ProductMenuItem = ({title}: IProductMenu) => {
   return (
     <View style={styles.containerText}>
       <Text style={styles.text}>{title}</Text>
