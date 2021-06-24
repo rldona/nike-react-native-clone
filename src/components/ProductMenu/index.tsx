@@ -1,16 +1,21 @@
 import React, {useEffect, useState} from 'react';
 import {ImageBackground, StyleSheet, View} from 'react-native';
 
-import {ProductMenuItem} from './ProductMenuItem';
-import {IProductMenu} from '../../models';
+import {IMenuItem, IProductMenu} from '../../models';
 
-const image = require('../../assets/images/menu/menu-man.png');
+import {ProductMenuItem} from './ProductMenuItem';
 
 export const ProductMenu = () => {
-  const [menu, setMenu] = useState<IProductMenu[]>([]);
+  const [menu, setMenu] = useState<IProductMenu>({
+    links: [],
+    backgrounds: [],
+  });
 
   const getMenuItems = async () => {
-    const menuList = await (await fetch('http://localhost:3000/menu')).json();
+    const menuList: IProductMenu = await (
+      await fetch('http://localhost:3000/menu')
+    ).json();
+
     setMenu(menuList);
   };
 
@@ -18,14 +23,18 @@ export const ProductMenu = () => {
     getMenuItems();
   }, []);
 
-  if (menu.length === 0) {
+  if (menu.links.length === 0) {
     return null;
   }
 
   return (
-    <ImageBackground source={image} style={styles.image}>
+    <ImageBackground
+      source={{
+        uri: menu.backgrounds[1],
+      }}
+      style={styles.image}>
       <View style={styles.container}>
-        {menu.map((item: IProductMenu) => (
+        {menu.links.map((item: IMenuItem) => (
           <ProductMenuItem id={item.id} title={item.title} key={item.id} />
         ))}
       </View>

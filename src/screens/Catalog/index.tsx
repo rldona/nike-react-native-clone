@@ -1,13 +1,23 @@
 import React from 'react';
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import {createStackNavigator} from '@react-navigation/stack';
+import {useNavigation} from '@react-navigation/native';
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
 
-import Icon from 'react-native-vector-icons/EvilIcons';
+import {SearchScreen} from '../Search';
+import {Categories} from '../Categories';
+import {ProductsScreen} from '../Products';
 
 import {H1} from '../../components/H1';
 import {H2} from '../../components/H2';
 import {ProductMenu} from '../../components/ProductMenu';
 import {GenreSelector} from '../../components/GenreSelector';
-import {createStackNavigator} from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
@@ -27,6 +37,8 @@ export const CatalogContent = () => {
 };
 
 export const CatalogScreen = () => {
+  const navigation = useNavigation();
+
   return (
     <Stack.Navigator
       screenOptions={{
@@ -40,9 +52,63 @@ export const CatalogScreen = () => {
         options={{
           title: '',
           headerRight: () => (
-            <Text style={styles.text}>
-              <Icon name="search" size={30} color="#000" />
+            <Text
+              style={styles.text}
+              onPress={() => navigation.navigate('Search')}>
+              <EvilIcons name="search" size={30} color="#000" />
             </Text>
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="Search"
+        component={SearchScreen}
+        options={{
+          title: '',
+          headerLeft: () => (
+            <TouchableOpacity
+              activeOpacity={1}
+              onPress={() => navigation.goBack()}>
+              <EvilIcons name="chevron-left" size={40} color="#000" />
+            </TouchableOpacity>
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="Categories"
+        component={Categories}
+        options={{
+          headerTitleStyle: {
+            color: '#000',
+            fontSize: 16,
+            borderBottomColor: '#000',
+            borderBottomWidth: 1,
+          },
+          headerLeft: () => (
+            <TouchableOpacity
+              activeOpacity={1}
+              onPress={() => navigation.goBack()}>
+              <EvilIcons name="chevron-left" size={40} color="#000" />
+            </TouchableOpacity>
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="Products"
+        component={ProductsScreen}
+        options={{
+          headerTitleStyle: {
+            color: '#000',
+            fontSize: 16,
+            borderBottomColor: '#000',
+            borderBottomWidth: 1,
+          },
+          headerLeft: () => (
+            <TouchableOpacity
+              activeOpacity={1}
+              onPress={() => navigation.goBack()}>
+              <EvilIcons name="chevron-left" size={40} color="#000" />
+            </TouchableOpacity>
           ),
         }}
       />

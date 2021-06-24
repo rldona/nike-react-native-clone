@@ -1,6 +1,11 @@
-export interface IProductMenu {
+export interface IMenuItem {
   id: number;
   title: string;
+}
+
+export interface IProductMenu {
+  links: IMenuItem[];
+  backgrounds: string[];
 }
 
 export interface IGenre {
@@ -9,4 +14,11 @@ export interface IGenre {
   type: string;
   isActive: boolean;
   onSelectGenre: (id: number) => void;
+}
+
+export interface ICategories {
+  id: number;
+  title: string;
+  type: string;
+  list: string[];
 }
