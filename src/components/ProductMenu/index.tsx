@@ -30,7 +30,7 @@ export const ProductMenu = () => {
   return (
     <ImageBackground
       source={{
-        uri: menu.backgrounds[1],
+        uri: menu.backgrounds[0],
       }}
       style={styles.image}>
       <View style={styles.container}>
@@ -52,6 +52,8 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     justifyContent: 'center',
     height: 533, // TODO: hacerlo dinámico: productMenuList.length * height
+    marginTop: 5,
+    marginBottom: 5,
   },
   text: {
     color: 'white',

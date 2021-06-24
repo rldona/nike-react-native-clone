@@ -22,3 +22,9 @@ export interface ICategories {
   type: string;
   list: string[];
 }
+
+export interface IPopular {
+  id: number;
+  title: string;
+  backdrop: string;
+}

@@ -15,9 +15,9 @@ import {Categories} from '../Categories';
 import {ProductsScreen} from '../Products';
 
 import {H1} from '../../components/H1';
-import {H2} from '../../components/H2';
 import {ProductMenu} from '../../components/ProductMenu';
 import {GenreSelector} from '../../components/GenreSelector';
+import {HorizontalScroll} from '../../components/HorizontalScroll';
 
 const Stack = createStackNavigator();
 
@@ -27,11 +27,16 @@ export const CatalogContent = () => {
       <View style={styles.paddingLateral}>
         <H1>Tienda</H1>
       </View>
+
       <GenreSelector />
-      <View style={styles.paddingLateral}>
-        <H2>Imprescindibles, superventas y más</H2>
-      </View>
+
+      <HorizontalScroll title="Imprescindibles, superventas y más" />
+
       <ProductMenu />
+
+      <HorizontalScroll title="Ultimos y próximos lanzamientos" />
+
+      <HorizontalScroll title="Colecciones de la selecciones" />
     </ScrollView>
   );
 };

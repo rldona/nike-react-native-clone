@@ -9,6 +9,6 @@ const styles = StyleSheet.create({
   text: {
     color: '#000',
     fontSize: 30,
-    fontWeight: 'bold',
+    fontWeight: '400',
   },
 });
