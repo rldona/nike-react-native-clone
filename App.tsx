@@ -46,7 +46,7 @@ export const App = () => {
           component={FavoritesScreen}
           options={{
             title: '',
-            tabBarIcon: () => <EvilIcons name="cart" size={30} color="#000" />,
+            tabBarIcon: () => <EvilIcons name="heart" size={30} color="#000" />,
           }}
         />
         <Tab.Screen
@@ -54,7 +54,7 @@ export const App = () => {
           component={ShoppigCartScreen}
           options={{
             title: '',
-            tabBarIcon: () => <EvilIcons name="heart" size={30} color="#000" />,
+            tabBarIcon: () => <EvilIcons name="cart" size={30} color="#000" />,
           }}
         />
         <Tab.Screen

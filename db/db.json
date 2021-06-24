@@ -4,6 +4,38 @@
     "woman": {},
     "kids": {}
   },
+  "popular": [
+    {
+      "id": "0",
+      "title": "Equipaciones de selecciones",
+      "backdrop": "https://static.nike.com/a/images/q_auto:eco/t_product_v1/f_auto/dpr_3.0/w_300,c_limit/9f38580f-ef5d-436c-977a-b0547cd1828c/fff-2020-stadium-home-camiseta-de-futbol-z6KlV4.png"
+    },
+    {
+      "id": "1",
+      "title": "Tendendecias de verano",
+      "backdrop": "https://static.nike.com/a/images/q_auto:eco/t_product_v1/f_auto/dpr_3.0/w_300,c_limit/5739785e-e96b-4491-8e99-d1f46c6c2f86/inglaterra-camiseta-de-futbol-de-manga-corta-Wg12Nd.png"
+    },
+    {
+      "id": "2",
+      "title": "ACG",
+      "backdrop": "https://static.nike.com/a/images/q_auto:eco/t_product_v1/f_auto/dpr_3.0/w_300,c_limit/f04e9d9c-2a00-43cd-906e-2d03da8f049d/primera-equipacion-stadium-paises-bajos-2020-camiseta-de-futbol-989fpV.png"
+    },
+    {
+      "id": "3",
+      "title": "Mini me",
+      "backdrop": "https://static.nike.com/a/images/q_auto:eco/t_product_v1/f_auto/dpr_3.0/w_300,c_limit/90b2caf5-2ab3-435d-982c-e6990e0f52e6/portugal-2020-stadium-home-camiseta-de-futbol-BsMgPG.png"
+    },
+    {
+      "id": "4",
+      "title": "Member Spotlight",
+      "backdrop": "https://static.nike.com/a/images/q_auto:eco/t_product_v1/f_auto/dpr_3.0/w_300,c_limit/f0344223-dce7-45db-a2c5-aad4ef647642/fff-2020-stadium-home-camiseta-de-futbol-tRs7cG.png"
+    },
+    {
+      "id": "5",
+      "title": "Novedades y próximos lanzamientos",
+      "backdrop": "https://static.nike.com/a/images/q_auto:eco/t_product_v1/f_auto/dpr_3.0/w_300,c_limit/9bc7a3d1-ae7f-42fc-b664-6f155f6b8186/inglaterra-camiseta-de-futbol-de-manga-corta-6fHH7B.png"
+    }
+  ],
   "menu": {
     "links": [
       {
