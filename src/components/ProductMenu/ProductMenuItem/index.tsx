@@ -1,13 +1,19 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
-import {IProductMenu} from '../../../models/index';
+import {IMenuItem} from '../../../models/index';
 
-export const ProductMenuItem = ({title}: IProductMenu) => {
+export const ProductMenuItem = ({id, title}: IMenuItem) => {
+  const navigation = useNavigation();
+
   return (
-    <View style={styles.containerText}>
+    <TouchableOpacity
+      activeOpacity={1}
+      onPress={() => navigation.navigate('Categories', {id})}
+      style={styles.containerText}>
       <Text style={styles.text}>{title}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

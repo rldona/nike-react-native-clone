@@ -4,28 +4,35 @@
     "woman": {},
     "kids": {}
   },
-  "menu": [
-    {
-      "id": 0,
-      "title": "Productos nuevos y destacados"
-    },
-    {
-      "id": 1,
-      "title": "Zapatillas"
-    },
-    {
-      "id": 2,
-      "title": "Ropa"
-    },
-    {
-      "id": 3,
-      "title": "Ofertas"
-    },
-    {
-      "id": 4,
-      "title": "Acceso para Members"
-    }
-  ],
+  "menu": {
+    "links": [
+      {
+        "id": 0,
+        "title": "Productos nuevos y destacados"
+      },
+      {
+        "id": 1,
+        "title": "Zapatillas"
+      },
+      {
+        "id": 2,
+        "title": "Ropa"
+      },
+      {
+        "id": 3,
+        "title": "Ofertas"
+      },
+      {
+        "id": 4,
+        "title": "Acceso para Members"
+      }
+    ],
+    "backgrounds": [
+      "https://static.nike.com/a/images/f_auto/dpr_3.0/w_300,c_limit/0bafb728-2ae2-416f-bb18-5935801c8071/site-oficial-de-nike.png",
+      "https://static.nike.com/a/images/f_auto/dpr_3.0/w_300,c_limit/2c8754ce-6287-4e77-a198-1ad483fba257/site-oficial-de-nike.png",
+      "https://static.nike.com/a/images/f_auto/dpr_3.0/w_300,c_limit/414db494-7ebc-4d53-bbff-58d50b380a24/site-oficial-de-nike.png"
+    ]
+  },
   "genres": [
     {
       "id": 0,
@@ -41,6 +48,22 @@
       "id": 2,
       "type": "kids",
       "name": "Niño/a"
+    }
+  ],
+  "categories": [
+    {
+      "id": 0,
+      "type": "news",
+      "title": "Productos nuevos y destacados",
+      "list": [
+        "Equipaciones",
+        "Tendencias de verano",
+        "Novedades",
+        "No te lo pierdas",
+        "Últimos y próximos lanzamientos",
+        "Move to Zero",
+        "Trail running"
+      ]
     }
   ]
 }
