@@ -1,7 +1,7 @@
 import React from 'react';
 import {ScrollView, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 
 import {SearchScreen} from '../Search';
@@ -13,6 +13,7 @@ import {ProductMenu} from '../../components/ProductMenu';
 import {GenreSelector} from '../../components/GenreSelector';
 import {HorizontalScroll} from '../../components/HorizontalScroll';
 import {Divider} from '../../components/Divider';
+import {ProductDetail} from '../../components/ProductDetail';
 
 const HomeStack = createStackNavigator();
 
@@ -103,6 +104,25 @@ export const CatalogStackScreen = () => {
             <TouchableOpacity
               activeOpacity={1}
               onPress={() => navigation.navigate('Categories')}>
+              <EvilIcons name="chevron-left" size={40} color="#000" />
+            </TouchableOpacity>
+          ),
+        }}
+      />
+      <HomeStack.Screen
+        name="ProductDetail"
+        component={ProductDetail}
+        options={{
+          headerTitleStyle: {
+            color: '#000',
+            fontSize: 16,
+            borderBottomColor: '#000',
+            borderBottomWidth: 1,
+          },
+          headerLeft: () => (
+            <TouchableOpacity
+              activeOpacity={1}
+              onPress={() => navigation.goBack()}>
               <EvilIcons name="chevron-left" size={40} color="#000" />
             </TouchableOpacity>
           ),

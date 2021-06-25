@@ -1,5 +1,5 @@
 import {useNavigation} from '@react-navigation/native';
-import React, {useEffect} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {ScrollView, StyleSheet, Text} from 'react-native';
 
 import {ProductList} from '../../components/ProductList';
@@ -10,10 +10,15 @@ interface Props {
 
 export const ProductsScreen = ({route}: Props) => {
   const navigation = useNavigation();
+  const title: string = route.params.title;
 
-  useEffect(() => {}, []);
+  const navigator = useCallback(async () => {
+    navigation.setOptions({title});
+  }, [navigation, title]);
 
-  navigation.setOptions({title: route.params.title});
+  useEffect(() => {
+    navigator();
+  }, [navigator]);
 
   return (
     <ScrollView style={styles.container}>

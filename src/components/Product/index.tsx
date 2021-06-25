@@ -1,9 +1,14 @@
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 export const Product = ({title, image}: any) => {
+  const navigation = useNavigation();
+
   return (
-    <TouchableOpacity activeOpacity={1} onPress={() => console.log('hola')}>
+    <TouchableOpacity
+      activeOpacity={1}
+      onPress={() => navigation.navigate('ProductDetail')}>
       <View style={styles.container}>
         <Image
           style={styles.backdrop}

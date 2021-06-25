@@ -1,44 +1,38 @@
 import {useNavigation} from '@react-navigation/native';
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 
 import {ScrollView, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {ICategories} from '../../models/index';
 
 interface Props {
   route: any;
 }
 
-const initCategory = {
-  id: 0,
-  title: '',
-  type: '',
-  list: [],
-};
-
 export const Categories = ({route}: Props) => {
-  const [categories, setcategories] = useState([initCategory]);
+  const [categories, setcategories] = useState<ICategories[]>([]);
   const navigation = useNavigation();
 
-  const id = route.params.id;
-
+  const id: number = route.params.id;
   console.log(id);
 
-  const getCategories = async () => {
+  const getCategories = useCallback(async () => {
     const categorieList = await (
       await fetch('http://localhost:3000/categories')
     ).json();
 
+    const title: string = categorieList[0].title;
+    navigation.setOptions({title});
+
     setcategories(categorieList);
-  };
+  }, [navigation]);
 
   useEffect(() => {
     getCategories();
-  }, []);
+  }, [getCategories]);
 
   if (categories.length === 0) {
     return null;
   }
-
-  navigation.setOptions({title: categories[0].title}); // TODO: revisar esta llamada y si es el ciclo normal
 
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
