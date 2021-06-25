@@ -7,13 +7,27 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 
 import {HomeScreen} from './src/screens/Home';
-import {CatalogScreen} from './src/screens/Catalog';
+import {CatalogStackScreen} from './src/screens/Catalog';
 import {FavoritesScreen} from './src/screens/Favorites';
 import {ShoppigCartScreen} from './src/screens/ShoppingCart';
 import {ProfileScreen} from './src/screens/Profile';
 import {StyleSheet} from 'react-native';
 
 const Tab = createBottomTabNavigator();
+
+// Home
+
+// Catalog
+// const CatalogStack = createStackNavigator();
+
+// Favorites
+// const FavoritesStack = createStackNavigator();
+
+// ShoppingCart
+// const ShoppingCartStack = createStackNavigator();
+
+// Profile
+// const ProfileStack = createStackNavigator();
 
 export const App = () => {
   return (
@@ -33,7 +47,7 @@ export const App = () => {
         />
         <Tab.Screen
           name="Catalog"
-          component={CatalogScreen}
+          component={CatalogStackScreen}
           options={{
             title: '',
             tabBarIcon: () => (
