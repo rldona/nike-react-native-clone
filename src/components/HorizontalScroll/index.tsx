@@ -49,12 +49,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: '400',
-    paddingTop: 20,
+
     paddingLeft: 20,
     marginBottom: 20,
   },
   horizontalScroll: {
     marginLeft: 15,
-    paddingRight: 30,
   },
 });
