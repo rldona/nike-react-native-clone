@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {ScrollView, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {useNavigation} from '@react-navigation/native';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
@@ -19,40 +13,33 @@ import {ProductMenu} from '../../components/ProductMenu';
 import {GenreSelector} from '../../components/GenreSelector';
 import {HorizontalScroll} from '../../components/HorizontalScroll';
 
-const Stack = createStackNavigator();
+const HomeStack = createStackNavigator();
 
-export const CatalogContent = () => {
+const CatalogContent = () => {
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
-      <View style={styles.paddingLateral}>
-        <H1>Tienda</H1>
-      </View>
-
+      <H1>Tienda</H1>
       <GenreSelector />
-
       <HorizontalScroll title="Imprescindibles, superventas y más" />
-
       <ProductMenu />
-
       <HorizontalScroll title="Ultimos y próximos lanzamientos" />
-
       <HorizontalScroll title="Colecciones de la selecciones" />
     </ScrollView>
   );
 };
 
-export const CatalogScreen = () => {
+export const CatalogStackScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <Stack.Navigator
+    <HomeStack.Navigator
       screenOptions={{
         headerTitleStyle: {color: '#2196f3'},
         cardStyle: {backgroundColor: '#FFF'},
         headerStyle: {shadowColor: 'transparent'},
       }}>
-      <Stack.Screen
-        name="Home"
+      <HomeStack.Screen
+        name="Shop"
         component={CatalogContent}
         options={{
           title: '',
@@ -65,7 +52,7 @@ export const CatalogScreen = () => {
           ),
         }}
       />
-      <Stack.Screen
+      <HomeStack.Screen
         name="Search"
         component={SearchScreen}
         options={{
@@ -73,13 +60,13 @@ export const CatalogScreen = () => {
           headerLeft: () => (
             <TouchableOpacity
               activeOpacity={1}
-              onPress={() => navigation.goBack()}>
+              onPress={() => navigation.navigate('Shop')}>
               <EvilIcons name="chevron-left" size={40} color="#000" />
             </TouchableOpacity>
           ),
         }}
       />
-      <Stack.Screen
+      <HomeStack.Screen
         name="Categories"
         component={Categories}
         options={{
@@ -92,13 +79,13 @@ export const CatalogScreen = () => {
           headerLeft: () => (
             <TouchableOpacity
               activeOpacity={1}
-              onPress={() => navigation.goBack()}>
+              onPress={() => navigation.navigate('Shop')}>
               <EvilIcons name="chevron-left" size={40} color="#000" />
             </TouchableOpacity>
           ),
         }}
       />
-      <Stack.Screen
+      <HomeStack.Screen
         name="Products"
         component={ProductsScreen}
         options={{
@@ -111,13 +98,13 @@ export const CatalogScreen = () => {
           headerLeft: () => (
             <TouchableOpacity
               activeOpacity={1}
-              onPress={() => navigation.goBack()}>
+              onPress={() => navigation.navigate('Categories')}>
               <EvilIcons name="chevron-left" size={40} color="#000" />
             </TouchableOpacity>
           ),
         }}
       />
-    </Stack.Navigator>
+    </HomeStack.Navigator>
   );
 };
 

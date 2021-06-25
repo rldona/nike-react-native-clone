@@ -1,12 +1,35 @@
 import React, {useEffect, useState} from 'react';
 import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {createStackNavigator} from '@react-navigation/stack';
 
 import {IFavorites} from '../../models';
 
-import {ProductItem} from '../../components/ProductItem';
+import {H1} from '../../components/H1';
+import {Product} from '../../components/Product';
+
+const FavoritesStack = createStackNavigator();
 
 export const FavoritesScreen = () => {
   const [favorites, setFavorites] = useState<IFavorites[]>([]);
+
+  const isFavoriteEdit = false; // TODO: Linkar con el estado de Redux
+
+  const FavoritesContent = () => {
+    return (
+      <View style={styles.container}>
+        <FlatList
+          data={favorites}
+          renderItem={({item}) => (
+            <Product title={item.title} image={item.backdrop} />
+          )}
+          numColumns={2}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.verticalScrollContainer}
+          ListHeaderComponent={() => <H1>Favoritos</H1>}
+        />
+      </View>
+    );
+  };
 
   const getFavorites = async () => {
     const favoriteList = await (
@@ -21,34 +44,43 @@ export const FavoritesScreen = () => {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.textBlank} />
-        <Text style={styles.text}>Favoritos</Text>
-        <TouchableOpacity
-          activeOpacity={1}
-          onPress={() => console.log('favorite taped !')}>
-          <Text style={styles.text}>Editar</Text>
-        </TouchableOpacity>
-      </View>
-
-      <FlatList
-        data={favorites}
-        renderItem={({item}) => (
-          <ProductItem title={item.title} image={item.backdrop} />
-        )}
-        numColumns={2}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.verticalScrollContainer}
+    <FavoritesStack.Navigator
+      screenOptions={{
+        headerTitleStyle: {color: '#2196f3'},
+        cardStyle: {backgroundColor: '#FFF'},
+        headerStyle: {shadowColor: 'transparent'},
+      }}>
+      <FavoritesStack.Screen
+        name="Favorites"
+        component={FavoritesContent}
+        options={{
+          title: 'Favoritos',
+          headerTitleStyle: {
+            color: '#000',
+            fontSize: 16,
+            borderBottomColor: '#000',
+            borderBottomWidth: 1,
+          },
+          headerRight: () => (
+            <TouchableOpacity
+              activeOpacity={1}
+              onPress={() => console.log('Edit favorite !!')}>
+              {isFavoriteEdit ? (
+                <Text style={styles.text}>OK</Text>
+              ) : (
+                <Text style={styles.text}>Editar</Text>
+              )}
+            </TouchableOpacity>
+          ),
+        }}
       />
-    </View>
+    </FavoritesStack.Navigator>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 50,
   },
   header: {
     justifyContent: 'space-between',
@@ -59,9 +91,7 @@ const styles = StyleSheet.create({
   text: {
     textAlign: 'center',
     fontSize: 16,
-  },
-  textBlank: {
-    width: 80,
+    paddingRight: 20,
   },
   verticalScrollContainer: {},
 });

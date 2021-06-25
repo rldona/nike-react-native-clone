@@ -1,12 +1,34 @@
 import React from 'react';
+import {createStackNavigator} from '@react-navigation/stack';
 
 import {StyleSheet, Text, View} from 'react-native';
 
+const HomeStack = createStackNavigator();
+
 export const HomeScreen = () => {
+  const HomeContent = () => {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.text}>HomeScreen</Text>
+      </View>
+    );
+  };
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>HomeScreen</Text>
-    </View>
+    <HomeStack.Navigator
+      screenOptions={{
+        headerTitleStyle: {color: '#2196f3'},
+        cardStyle: {backgroundColor: '#FFF'},
+        headerStyle: {shadowColor: 'transparent'},
+      }}>
+      <HomeStack.Screen
+        name="ShoppingCart"
+        component={HomeContent}
+        options={{
+          headerShown: false,
+        }}
+      />
+    </HomeStack.Navigator>
   );
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
-export const ProductItem = ({title, image}: any) => {
+export const Product = ({title, image}: any) => {
   return (
     <TouchableOpacity activeOpacity={1} onPress={() => console.log('hola')}>
       <View style={styles.container}>

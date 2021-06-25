@@ -3,7 +3,7 @@ import {FlatList, StyleSheet, Text, View} from 'react-native';
 
 import {IPopular} from '../../models';
 
-import {ProductItem} from '../ProductItem';
+import {Product} from '../Product';
 
 interface Props {
   title: string;
@@ -35,7 +35,7 @@ export const HorizontalScroll = ({title}: Props) => {
       <FlatList
         data={popular}
         renderItem={({item}) => (
-          <ProductItem title={item.title} image={item.backdrop} />
+          <Product title={item.title} image={item.backdrop} />
         )}
         horizontal
         showsHorizontalScrollIndicator={false}
