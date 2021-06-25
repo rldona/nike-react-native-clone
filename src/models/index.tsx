@@ -28,3 +28,7 @@ export interface IPopular {
   title: string;
   backdrop: string;
 }
+
+export interface IFavorites extends IPopular {
+  price: number;
+}
