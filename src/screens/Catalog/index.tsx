@@ -12,6 +12,7 @@ import {H1} from '../../components/H1';
 import {ProductMenu} from '../../components/ProductMenu';
 import {GenreSelector} from '../../components/GenreSelector';
 import {HorizontalScroll} from '../../components/HorizontalScroll';
+import {Divider} from '../../components/Divider';
 
 const HomeStack = createStackNavigator();
 
@@ -20,9 +21,12 @@ const CatalogContent = () => {
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
       <H1>Tienda</H1>
       <GenreSelector />
+      <Divider />
       <HorizontalScroll title="Imprescindibles, superventas y más" />
       <ProductMenu />
+      <Divider />
       <HorizontalScroll title="Ultimos y próximos lanzamientos" />
+      <Divider />
       <HorizontalScroll title="Colecciones de la selecciones" />
     </ScrollView>
   );
