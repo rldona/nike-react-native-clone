@@ -8,7 +8,6 @@ export function useTemplate() {
   useEffect(() => {
     /***** REMOVE *****/
     setState(undefined);
-    console.log(state);
     /***** REMOVE *****/
   }, [state]);
 
