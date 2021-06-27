@@ -1,34 +1,16 @@
+import React from 'react';
 import {useNavigation} from '@react-navigation/native';
-import React, {useCallback, useEffect, useState} from 'react';
-
 import {ScrollView, StyleSheet, Text, TouchableOpacity} from 'react-native';
-import {ICategories} from '../../models/index';
+
+import {useCategories} from '../../hooks/useCategories';
 
 interface Props {
   route: any;
 }
 
 export const Categories = ({route}: Props) => {
-  const [categories, setcategories] = useState<ICategories[]>([]);
+  const {categories} = useCategories({route});
   const navigation = useNavigation();
-
-  const id: number = route.params.id;
-  console.log(id);
-
-  const getCategories = useCallback(async () => {
-    const categorieList = await (
-      await fetch('http://localhost:3000/categories')
-    ).json();
-
-    const title: string = categorieList[0].title;
-    navigation.setOptions({title});
-
-    setcategories(categorieList);
-  }, [navigation]);
-
-  useEffect(() => {
-    getCategories();
-  }, [getCategories]);
 
   if (categories.length === 0) {
     return null;

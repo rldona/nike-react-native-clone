@@ -1,54 +1,23 @@
-import React, {useEffect, useState} from 'react';
-
-import {StyleSheet, View} from 'react-native';
-import {GenreSelectorItem} from './GenreSelectorItem';
+import React from 'react';
+import {ScrollView, StyleSheet} from 'react-native';
 
 import {IGenre} from '../../models';
+import {useGenres} from '../../hooks/useGenres';
+import {GenreSelectorItem} from './GenreSelectorItem';
 
 export const GenreSelector = () => {
-  const [genres, setGenres] = useState<IGenre[]>([]);
-
-  const onSelectGenre = (id: number) => {
-    let newGenres: IGenre[] = genres;
-
-    newGenres.forEach(element => (element.isActive = false));
-
-    newGenres[id].isActive = true;
-
-    setGenres([...newGenres]);
-  };
-
-  const getGenres = async () => {
-    const genreList = await (
-      await fetch('http://localhost:3000/genres')
-    ).json();
-
-    genreList[0].isActive = true;
-
-    setGenres(genreList);
-  };
-
-  useEffect(() => {
-    getGenres();
-  }, []);
-
-  if (genres.length === 0) {
-    return null;
-  }
+  const {genres, onSelectGenre} = useGenres();
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container} horizontal>
       {genres.map((genre: IGenre) => (
         <GenreSelectorItem
-          id={genre.id}
-          type={genre.type}
-          name={genre.name}
-          isActive={genre.isActive}
-          onSelectGenre={onSelectGenre}
+          {...genre}
           key={genre.id}
+          onSelectGenre={onSelectGenre}
         />
       ))}
-    </View>
+    </ScrollView>
   );
 };
 
