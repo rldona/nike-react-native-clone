@@ -9,7 +9,7 @@ yarn serve-database
 ### Install dependencies
 
 ```terminal
-yarn install && npx react-native run-ios
+yarn install
 ```
 
 ### Start the application
