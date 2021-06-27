@@ -32,3 +32,7 @@ export const getCurrentDate = () => {
 
   return `${Weekday[week - 1]}, ${day} de ${Month[month]}`;
 };
+
+export const wait = (timeout: number) => {
+  return new Promise(resolve => setTimeout(resolve, timeout));
+};

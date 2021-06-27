@@ -1,13 +1,17 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
+
+import {Context} from '../../context/options';
 
 import {FavoritesContent} from '../../components/FavoritesContent';
 
 const FavoritesStack = createStackNavigator();
 
 export const FavoritesScreen = () => {
-  const isFavoriteEdit = false; // TODO: Linkar con el estado de Redux
+  const {store, dispatch}: any = useContext(Context);
+
+  const isFavoriteEdited = store.isFavoriteEdited;
 
   return (
     <FavoritesStack.Navigator
@@ -30,8 +34,10 @@ export const FavoritesScreen = () => {
           headerRight: () => (
             <TouchableOpacity
               activeOpacity={1}
-              onPress={() => console.log('Edit favorite !!')}>
-              {isFavoriteEdit ? (
+              onPress={() =>
+                dispatch({type: 'TOGGLE_SHOW_BUTTON_TO_EDIT_FAVORITES'})
+              }>
+              {isFavoriteEdited ? (
                 <Text style={styles.text}>OK</Text>
               ) : (
                 <Text style={styles.text}>Editar</Text>
