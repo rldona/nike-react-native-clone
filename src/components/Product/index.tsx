@@ -2,7 +2,7 @@ import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
-export const Product = ({title, image}: any) => {
+export const Product = ({title, backdrop}: any) => {
   const navigation = useNavigation();
 
   return (
@@ -13,7 +13,7 @@ export const Product = ({title, image}: any) => {
         <Image
           style={styles.backdrop}
           source={{
-            uri: image,
+            uri: backdrop,
           }}
         />
         <Text style={styles.title}>{title}</Text>

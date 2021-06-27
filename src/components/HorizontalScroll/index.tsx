@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {FlatList, StyleSheet, Text, View} from 'react-native';
-
-import {IPopular} from '../../models';
+import {usePopular} from '../../hooks/usePopular';
 
 import {Product} from '../Product';
 
@@ -10,19 +9,7 @@ interface Props {
 }
 
 export const HorizontalScroll = ({title}: Props) => {
-  const [popular, setPopular] = useState<IPopular[]>([]);
-
-  const getPopular = async () => {
-    const categorieList = await (
-      await fetch('http://localhost:3000/popular')
-    ).json();
-
-    setPopular(categorieList);
-  };
-
-  useEffect(() => {
-    getPopular();
-  }, []);
+  const {popular} = usePopular();
 
   if (popular.length === 0) {
     return null;
@@ -34,9 +21,7 @@ export const HorizontalScroll = ({title}: Props) => {
 
       <FlatList
         data={popular}
-        renderItem={({item}) => (
-          <Product title={item.title} image={item.backdrop} />
-        )}
+        renderItem={({item}) => <Product {...item} />}
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.horizontalScroll}
