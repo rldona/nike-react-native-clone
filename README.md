@@ -6,10 +6,20 @@
 yarn serve-database
 ```
 
-### Start the application
+### Install dependencies
 
 ```terminal
 yarn install && npx react-native run-ios
+```
+
+### Start the application
+
+```terminal
+npx react-native run-ios --simulator="iPhone 12 Pro"
+```
+
+```terminal
+npx react-native run-ios --simulator="iPhone 12 Pro" --configuration Release
 ```
 
 ### Testing

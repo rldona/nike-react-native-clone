@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, StackActions} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
@@ -15,19 +15,27 @@ import {StyleSheet} from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
-// Home
+interface Props {
+  navigation: any;
+}
 
-// Catalog
-// const CatalogStack = createStackNavigator();
-
-// Favorites
-// const FavoritesStack = createStackNavigator();
-
-// ShoppingCart
-// const ShoppingCartStack = createStackNavigator();
-
-// Profile
-// const ProfileStack = createStackNavigator();
+// Hack: Reset Stack Inside Tab After Leaving Tab
+// Source https://medium.com/react-native-school/react-navigation-v5-reset-stack-inside-tab-after-leaving-tab-d6f757778195
+const resetHomeStackOnTabPress = ({navigation}: Props) => ({
+  tabPress: (e: any) => {
+    const state = navigation.dangerouslyGetState();
+    if (state) {
+      const nonTargetTabs = state.routes.filter((r: any) => r.key !== e.target);
+      nonTargetTabs.forEach((tab: any) => {
+        const stackKey = tab?.state?.key;
+        navigation.dispatch({
+          ...StackActions.popToTop(),
+          target: stackKey,
+        });
+      });
+    }
+  },
+});
 
 export const App = () => {
   return (
@@ -54,6 +62,7 @@ export const App = () => {
               <EvilIcons name="search" size={30} color="#000" />
             ),
           }}
+          listeners={resetHomeStackOnTabPress}
         />
         <Tab.Screen
           name="Favorites"
