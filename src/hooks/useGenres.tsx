@@ -12,6 +12,10 @@ export function useGenres() {
     newGenres[id].isActive = true;
 
     setGenres([...newGenres]);
+
+    // replace for dispatch redux-thunk a retrive products (man, woman o kikds)
+    // set options with genre selected (man, woman o kikds)
+    console.log(newGenres[id]);
   };
 
   const getGenres = async () => {
