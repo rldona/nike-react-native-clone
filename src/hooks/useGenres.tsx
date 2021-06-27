@@ -1,7 +1,10 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useContext, useState} from 'react';
+
+import {Context} from '../context/options';
 import {IGenre} from '../models';
 
 export function useGenres() {
+  const {dispatch}: any = useContext(Context);
   const [genres, setGenres] = useState<IGenre[]>([]);
 
   const onSelectGenre = (id: number) => {
@@ -11,11 +14,9 @@ export function useGenres() {
 
     newGenres[id].isActive = true;
 
-    setGenres([...newGenres]);
+    dispatch({type: 'SET_CURRENT_GENRE', payload: id});
 
-    // replace for dispatch redux-thunk a retrive products (man, woman o kikds)
-    // set options with genre selected (man, woman o kikds)
-    console.log(newGenres[id]);
+    setGenres([...newGenres]);
   };
 
   const getGenres = async () => {

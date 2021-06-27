@@ -1,15 +1,17 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {ImageBackground, StyleSheet, View} from 'react-native';
+
+import {Context} from '../../context/options';
 
 import {IMenuItem} from '../../models';
 import {useMenu} from '../../hooks/useMenu';
 import {ProductMenuItem} from './ProductMenuItem';
 
 export const ProductMenu = () => {
+  const {store}: any = useContext(Context);
   const {menu} = useMenu();
 
-  // get options with genre selected (man, woman o kikds)
-  const genreId = 0;
+  const genreId = store.currentGenre;
 
   if (menu.links.length === 0) {
     return null;

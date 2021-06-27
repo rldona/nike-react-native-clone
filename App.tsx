@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, {useReducer} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
@@ -12,6 +12,8 @@ import {FavoritesScreen} from './src/screens/Favorites';
 import {ShoppigCartScreen} from './src/screens/ShoppingCart';
 import {ProfileScreen} from './src/screens/Profile';
 import {StyleSheet} from 'react-native';
+
+import {initialState, reducer, Context} from './src/context/options';
 
 const Tab = createBottomTabNavigator();
 
@@ -43,58 +45,68 @@ const Tab = createBottomTabNavigator();
 // **********************************************************************************
 
 export const App = () => {
+  const [store, dispatch] = useReducer(reducer, initialState);
+
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        initialRouteName="Catalog"
-        tabBarOptions={{tabStyle: styles.tabNavigator}}>
-        <Tab.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{
-            title: '',
-            tabBarIcon: () => (
-              <SimpleLineIcons name="home" size={20} color="#000" />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Catalog"
-          component={CatalogStackScreen}
-          options={{
-            title: '',
-            tabBarIcon: () => (
-              <EvilIcons name="search" size={30} color="#000" />
-            ),
-          }}
-          // listeners={resetHomeStackOnTabPress}
-        />
-        <Tab.Screen
-          name="Favorites"
-          component={FavoritesScreen}
-          options={{
-            title: '',
-            tabBarIcon: () => <EvilIcons name="heart" size={30} color="#000" />,
-          }}
-        />
-        <Tab.Screen
-          name="ShoppingCart"
-          component={ShoppigCartScreen}
-          options={{
-            title: '',
-            tabBarIcon: () => <EvilIcons name="cart" size={30} color="#000" />,
-          }}
-        />
-        <Tab.Screen
-          name="Profile"
-          component={ProfileScreen}
-          options={{
-            title: '',
-            tabBarIcon: () => <EvilIcons name="user" size={30} color="#000" />,
-          }}
-        />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <Context.Provider value={{store, dispatch}}>
+      <NavigationContainer>
+        <Tab.Navigator
+          initialRouteName="Catalog"
+          tabBarOptions={{tabStyle: styles.tabNavigator}}>
+          <Tab.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{
+              title: '',
+              tabBarIcon: () => (
+                <SimpleLineIcons name="home" size={20} color="#000" />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Catalog"
+            component={CatalogStackScreen}
+            options={{
+              title: '',
+              tabBarIcon: () => (
+                <EvilIcons name="search" size={30} color="#000" />
+              ),
+            }}
+            // listeners={resetHomeStackOnTabPress}
+          />
+          <Tab.Screen
+            name="Favorites"
+            component={FavoritesScreen}
+            options={{
+              title: '',
+              tabBarIcon: () => (
+                <EvilIcons name="heart" size={30} color="#000" />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="ShoppingCart"
+            component={ShoppigCartScreen}
+            options={{
+              title: '',
+              tabBarIcon: () => (
+                <EvilIcons name="cart" size={30} color="#000" />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Profile"
+            component={ProfileScreen}
+            options={{
+              title: '',
+              tabBarIcon: () => (
+                <EvilIcons name="user" size={30} color="#000" />
+              ),
+            }}
+          />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </Context.Provider>
   );
 };
 

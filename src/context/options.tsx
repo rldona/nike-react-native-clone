@@ -1,22 +1,22 @@
+import React from 'react';
+
 export const initialState = {
-  count: 0,
+  currentGenre: 0,
 };
 
-type ActionType = {type: 'increment'} | {type: 'decrement'};
+type ActionType = {type: 'SET_CURRENT_GENRE'; payload: number};
 
 export const reducer = (state: typeof initialState, action: ActionType) => {
   switch (action.type) {
-    case 'increment':
+    case 'SET_CURRENT_GENRE':
+      console.log(action.payload);
       return {
         ...state,
-        count: state.count + 1,
-      };
-    case 'decrement':
-      return {
-        ...state,
-        count: state.count - 1,
+        currentGenre: action.payload,
       };
     default:
       return state;
   }
 };
+
+export const Context = React.createContext({});
