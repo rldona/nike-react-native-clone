@@ -1,7 +1,10 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useContext, useState} from 'react';
+
+import {Context} from '../context/options';
 import {IGenre} from '../models';
 
 export function useGenres() {
+  const {dispatch}: any = useContext(Context);
   const [genres, setGenres] = useState<IGenre[]>([]);
 
   const onSelectGenre = (id: number) => {
@@ -10,6 +13,8 @@ export function useGenres() {
     newGenres.forEach(element => (element.isActive = false));
 
     newGenres[id].isActive = true;
+
+    dispatch({type: 'SET_CURRENT_GENRE', payload: id});
 
     setGenres([...newGenres]);
   };
