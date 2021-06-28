@@ -9,11 +9,7 @@ import {H1} from '../H1';
 import {Product} from '../Product';
 import {EmptyResults} from '../EmptyResults';
 
-interface Props {
-  navigation: any;
-}
-
-export const FavoritesContent = ({navigation}: Props) => {
+export const FavoritesContent = () => {
   const [refreshing, setRefreshing] = useState(false);
   const {
     store: {isFavoriteEdited, showEditFavoritesButton},
@@ -37,11 +33,7 @@ export const FavoritesContent = ({navigation}: Props) => {
     // 3. save data on store => products
 
     /*** Try React Query :) ***/
-
-    navigation.addListener('focus', () => {
-      console.log('-- Favorite Screen focus --');
-    });
-  }, [dispatch, navigation]);
+  }, [dispatch]);
 
   if (favorites.length === 0) {
     return (
@@ -96,8 +88,8 @@ const styles = StyleSheet.create({
   },
   editButton: {
     position: 'absolute',
-    top: 0,
-    right: 0,
+    top: 10,
+    right: 5,
   },
   text: {
     textAlign: 'center',
