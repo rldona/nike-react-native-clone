@@ -36,8 +36,8 @@ yarn start testing
 - [ ] Create the 'Login' screen
 - [ ] Create the 'Registration' screen
 - [ ] Create the 'Remember password' screen
-- [ ] Modify the 'Button' component so that it accepts different sizes: small, medium, large and extra-large.
-- [ ] Modify the 'Product' component to accept different sizes: small, medium, large and extra-large.
+- [x] Modify the 'Button' component so that it accepts different sizes: small, medium and large.
+- [ ] Modify the 'Product' component to accept different sizes: small, medium and large.
 - [ ] Add Formik and Yup for the validation of the forms.
 - [ ] Add Firebase ReactNative for login authentication.
 - [ ] Validate React Query for asynchronous calls from the store.

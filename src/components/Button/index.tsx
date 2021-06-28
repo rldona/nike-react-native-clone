@@ -9,13 +9,13 @@ interface Props {
   children: string;
 }
 
-enum buttonSizes {
+enum ButtonSizes {
   'small' = 10,
   'medium' = 16,
   'large' = 18,
 }
 
-enum textSizes {
+enum TextSizes {
   'small' = 14,
   'medium' = 16,
   'large' = 18,
@@ -30,7 +30,7 @@ export const Button = ({
   const setButtonStyle = () => {
     return {
       ...styles.button,
-      padding: buttonSizes[size],
+      padding: ButtonSizes[size as keyof typeof ButtonSizes],
       width: '100%',
       backgroundColor,
     };
@@ -40,7 +40,7 @@ export const Button = ({
     return {
       ...styles.textButton,
       color,
-      fontSize: textSizes[size],
+      fontSize: TextSizes[size as keyof typeof TextSizes],
     };
   };
 
