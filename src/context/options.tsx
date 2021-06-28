@@ -3,6 +3,7 @@ import React from 'react';
 export const initialState = {
   currentGenre: 0,
   favorites: [],
+  showEditFavoritesButton: true,
   isFavoriteEdited: false,
   isLoadingShow: false,
 };
@@ -10,7 +11,8 @@ export const initialState = {
 type ActionType =
   | {type: 'SET_CURRENT_GENRE'; payload: number}
   | {type: 'TOGGLE_SHOW_BUTTON_TO_EDIT_FAVORITES'}
-  | {type: 'SHOW_LOADING'; payload: boolean};
+  | {type: 'SHOW_LOADING'; payload: boolean}
+  | {type: 'SHOW_EDIT_FAVORITEES_BUTTON'; payload: boolean};
 
 export const reducer = (state: typeof initialState, action: ActionType) => {
   switch (action.type) {
@@ -25,6 +27,11 @@ export const reducer = (state: typeof initialState, action: ActionType) => {
         isFavoriteEdited: !state.isFavoriteEdited,
       };
     case 'SHOW_LOADING':
+      return {
+        ...state,
+        isLoadingShow: action.payload,
+      };
+    case 'SHOW_EDIT_FAVORITEES_BUTTON':
       return {
         ...state,
         isLoadingShow: action.payload,
