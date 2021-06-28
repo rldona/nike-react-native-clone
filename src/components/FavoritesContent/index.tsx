@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react';
-import {FlatList, StyleSheet, View} from 'react-native';
+import {FlatList, StyleSheet} from 'react-native';
 import {Context} from '../../context/options';
 
 import {useFavorites} from '../../hooks/useFavorites';
@@ -31,25 +31,21 @@ export const FavoritesContent = () => {
   }, [dispatch]);
 
   return (
-    <View style={styles.container}>
-      <FlatList
-        data={favorites}
-        renderItem={({item}) => <Product {...item} />}
-        numColumns={2}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.verticalScrollContainer}
-        ListHeaderComponent={() => <H1>Favoritos</H1>}
-        onRefresh={onRefresh}
-        refreshing={refreshing}
-      />
-    </View>
+    <FlatList
+      data={favorites}
+      renderItem={({item}) => <Product {...item} />}
+      numColumns={2}
+      showsVerticalScrollIndicator={false}
+      ListHeaderComponent={() => <H1>Favoritos</H1>}
+      onRefresh={onRefresh}
+      refreshing={refreshing}
+      columnWrapperStyle={styles.verticalScrollContainer}
+    />
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
+  verticalScrollContainer: {
+    justifyContent: 'space-between',
   },
-  verticalScrollContainer: {},
 });

@@ -44,17 +44,17 @@ const styles = StyleSheet.create({
   container: {
     padding: 0,
     marginBottom: 20,
-    width: 180,
+    width: 190,
   },
   title: {
     fontSize: 14,
-    width: 190,
+    width: 180,
   },
   backdrop: {
     height: 200,
-    width: 170,
+    width: 190,
     resizeMode: 'cover',
-    marginBottom: 20,
+    marginBottom: 10,
   },
   favoriteIcon: {
     position: 'absolute',

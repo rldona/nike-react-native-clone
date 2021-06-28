@@ -11,10 +11,9 @@ import {CatalogStackScreen} from './src/screens/Catalog';
 import {FavoritesScreen} from './src/screens/Favorites';
 import {ShoppigCartScreen} from './src/screens/ShoppingCart';
 import {ProfileScreen} from './src/screens/Profile';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 
 import {initialState, reducer, Context} from './src/context/options';
-import {Loading} from './src/components/Loading';
 
 const Tab = createBottomTabNavigator();
 
@@ -50,74 +49,68 @@ export const App = () => {
 
   return (
     <Context.Provider value={{store, dispatch}}>
-      <View style={styles.container}>
-        <NavigationContainer>
-          <Tab.Navigator
-            initialRouteName="Catalog"
-            tabBarOptions={{tabStyle: styles.tabNavigator}}>
-            <Tab.Screen
-              name="Home"
-              component={HomeScreen}
-              options={{
-                title: '',
-                tabBarIcon: () => (
-                  <SimpleLineIcons name="home" size={20} color="#000" />
-                ),
-              }}
-            />
-            <Tab.Screen
-              name="Catalog"
-              component={CatalogStackScreen}
-              options={{
-                title: '',
-                tabBarIcon: () => (
-                  <EvilIcons name="search" size={30} color="#000" />
-                ),
-              }}
-              // listeners={resetHomeStackOnTabPress}
-            />
-            <Tab.Screen
-              name="Favorites"
-              component={FavoritesScreen}
-              options={{
-                title: '',
-                tabBarIcon: () => (
-                  <EvilIcons name="heart" size={30} color="#000" />
-                ),
-              }}
-            />
-            <Tab.Screen
-              name="ShoppingCart"
-              component={ShoppigCartScreen}
-              options={{
-                title: '',
-                tabBarIcon: () => (
-                  <EvilIcons name="cart" size={30} color="#000" />
-                ),
-              }}
-            />
-            <Tab.Screen
-              name="Profile"
-              component={ProfileScreen}
-              options={{
-                title: '',
-                tabBarIcon: () => (
-                  <EvilIcons name="user" size={30} color="#000" />
-                ),
-              }}
-            />
-          </Tab.Navigator>
-        </NavigationContainer>
-        {store.isLoadingShow ? <Loading /> : null}
-      </View>
+      <NavigationContainer>
+        <Tab.Navigator
+          initialRouteName="Catalog"
+          tabBarOptions={{tabStyle: styles.tabNavigator}}>
+          <Tab.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{
+              title: '',
+              tabBarIcon: () => (
+                <SimpleLineIcons name="home" size={20} color="#000" />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Catalog"
+            component={CatalogStackScreen}
+            options={{
+              title: '',
+              tabBarIcon: () => (
+                <EvilIcons name="search" size={30} color="#000" />
+              ),
+            }}
+            // listeners={resetHomeStackOnTabPress}
+          />
+          <Tab.Screen
+            name="Favorites"
+            component={FavoritesScreen}
+            options={{
+              title: '',
+              tabBarIcon: () => (
+                <EvilIcons name="heart" size={30} color="#000" />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="ShoppingCart"
+            component={ShoppigCartScreen}
+            options={{
+              title: '',
+              tabBarIcon: () => (
+                <EvilIcons name="cart" size={30} color="#000" />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Profile"
+            component={ProfileScreen}
+            options={{
+              title: '',
+              tabBarIcon: () => (
+                <EvilIcons name="user" size={30} color="#000" />
+              ),
+            }}
+          />
+        </Tab.Navigator>
+      </NavigationContainer>
     </Context.Provider>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   tabNavigator: {
     height: 65,
   },

@@ -25,6 +25,7 @@ export const HorizontalScroll = ({title}: Props) => {
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.horizontalScroll}
+        ItemSeparatorComponent={() => <Text style={styles.text} />}
       />
     </View>
   );
@@ -40,5 +41,9 @@ const styles = StyleSheet.create({
   },
   horizontalScroll: {
     marginLeft: 15,
+    paddingRight: 30,
+  },
+  text: {
+    padding: 5,
   },
 });
