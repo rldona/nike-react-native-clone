@@ -1,22 +1,22 @@
 import {useEffect, useState} from 'react';
 import {IFavorites} from '../models';
 
-export function useFavorites() {
-  const [favorites, setFavorites] = useState<IFavorites[]>([]);
+export function useShoppingCart() {
+  const [shoppingCart, setShoppingCart] = useState<IFavorites[]>([]);
 
-  const getFavorites = async () => {
+  const getShoppingCart = async () => {
     const favoriteList = await (
       await fetch('http://localhost:3000/favorites')
     ).json();
 
-    setFavorites(favoriteList);
+    setShoppingCart(favoriteList);
   };
 
   useEffect(() => {
-    getFavorites();
+    getShoppingCart();
   }, []);
 
   return {
-    favorites,
+    shoppingCart,
   };
 }

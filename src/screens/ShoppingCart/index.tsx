@@ -1,24 +1,11 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {H1} from '../../components/H1';
 
-import {Button} from '../../components/Button';
+import {ShoppingCartContent} from '../../components/ShoppingCartContent';
 
 const ShoppigCartStack = createStackNavigator();
 
 export const ShoppigCartScreen = () => {
-  const ShoppingCartContent = () => {
-    return (
-      <View style={styles.container}>
-        <H1>Cesta</H1>
-        <View style={styles.buttonContainer}>
-          <Button>Pasar por caja</Button>
-        </View>
-      </View>
-    );
-  };
-
   return (
     <ShoppigCartStack.Navigator
       screenOptions={{
@@ -42,18 +29,3 @@ export const ShoppigCartScreen = () => {
     </ShoppigCartStack.Navigator>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  buttonContainer: {
-    width: '100%',
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    borderTopWidth: 1,
-    borderTopColor: '#DEDEDE',
-    padding: 20,
-  },
-});

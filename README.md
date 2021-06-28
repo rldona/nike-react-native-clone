@@ -43,8 +43,8 @@ yarn start testing
 - [ ] Validate React Query for asynchronous calls from the store.
 - [ ] Add HTTP calls (axios) from the 'Horizontal Gender Selector'.
 - [ ] Add skeleton of presentation of products and favorites.
-- [ ] Add message when there are no saved favorites + 'Buy now' button that redirects to the main store (ShopScreen).
-- [ ] Add empty 'Shopping cart' message + 'Buy now' button that redirects to the main store (ShopScreen).
+- [x] Add message when there are no saved favorites + 'Buy now' button that redirects to the main store (ShopScreen).
+- [x] Add empty 'Shopping cart' message + 'Buy now' button that redirects to the main store (ShopScreen).
 - [ ] Add message (modal) indicated that a product has been added to the shopping cart.
 - [ ] Create product item for the shopping cart.
 - [ ] Add horizontal slide functionality in shopping cart for product item to: 1. Save to favorites and 2. Remove from shopping cart
