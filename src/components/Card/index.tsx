@@ -19,7 +19,9 @@ export const Card = ({title, topic, src}: Props) => {
         <Text style={styles.h2}>{topic}</Text>
         <Text style={styles.h1}>{title}</Text>
         <View style={styles.buttonContainer}>
-          <Button>Más información</Button>
+          <Button size="small" color="#000" backgroundColor="#FFF">
+            Más información
+          </Button>
         </View>
       </View>
     </ImageBackground>
@@ -51,7 +53,8 @@ const styles = StyleSheet.create({
     paddingBottom: 15,
   },
   buttonContainer: {
-    width: 220,
+    width: 175,
     paddingLeft: 20,
+    marginBottom: 15,
   },
 });

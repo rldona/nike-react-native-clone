@@ -2,8 +2,9 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
-import {Button} from '../Button';
+
 import {H1} from '../H1';
+import {Button} from '../Button';
 
 interface Props {
   icon: string;
@@ -61,6 +62,6 @@ const styles = StyleSheet.create({
     width: '100%',
     borderTopWidth: 1,
     borderTopColor: '#DEDEDE',
-    padding: 20,
+    padding: 16,
   },
 });

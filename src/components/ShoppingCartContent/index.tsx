@@ -41,6 +41,6 @@ const styles = StyleSheet.create({
     left: 0,
     borderTopWidth: 1,
     borderTopColor: '#DEDEDE',
-    padding: 20,
+    padding: 16,
   },
 });
