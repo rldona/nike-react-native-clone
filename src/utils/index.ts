@@ -15,13 +15,13 @@ export const getCurrentDate = () => {
   }
 
   enum Weekday {
-    lunes,
-    martes,
-    miércoles,
-    jueves,
-    viernes,
-    sábado,
-    domingo,
+    lunes = 1,
+    martes = 2,
+    miércoles = 3,
+    jueves = 4,
+    viernes = 5,
+    sábado = 6,
+    domingo = 0,
   }
 
   const date = new Date();
@@ -30,5 +30,11 @@ export const getCurrentDate = () => {
   const week = date.getDay();
   const month = date.getMonth();
 
-  return `${Weekday[week - 1]}, ${day} de ${Month[month]}`;
+  console.log(month);
+
+  return `${Weekday[week]}, ${day} de ${Month[month]}`;
+};
+
+export const wait = (timeout: number) => {
+  return new Promise(resolve => setTimeout(resolve, timeout));
 };
