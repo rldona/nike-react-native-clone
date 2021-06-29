@@ -72,7 +72,6 @@ export const App = () => {
                 <EvilIcons name="search" size={30} color="#000" />
               ),
             }}
-            // listeners={resetHomeStackOnTabPress}
           />
           <Tab.Screen
             name="Favorites"
