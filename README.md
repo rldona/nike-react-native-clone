@@ -57,10 +57,6 @@ yarn start testing
 - [ ] Create 'Search' page + animations
 - [ ] Create 'Profile' page
 
-#### BUGs
-
-- [ ] Modify the transition between screens (multi-stack).
-
 #### API
 
 - [ ] Add Axios provider
@@ -70,3 +66,8 @@ yarn start testing
 #### DB
 
 - [ ] Add product list (products)
+
+#### IMPROVE
+
+- [ ] Modify the transition between screens (multi-stack).
+
