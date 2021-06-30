@@ -1,13 +1,50 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {FlatList, StyleSheet, View} from 'react-native';
 
-import {ProductListItem} from '../ProductListItem';
+import {useProducts} from '../../hooks/useProducts';
+import {ProductTypeSelector} from '../ProductTypeSelector';
+import {Product} from '../Product';
+
+/**
+
+ROPA: clothing
+
+(Filters)
+
+- Todo: (remove filters)
+- Partes de Arriba: top-parts
+- Sudaderas con y sin capucha: hoodies-and-sweatshirts
+- Chaquetas y chalecos: jackets-and-vests
+- Pantalones y mallas: pants-and-tights
+- Chándales: tracksuits
+- Pantalones cortos: shorts
+- Compresión y capas base: compression-and-base-layers
+- Surf y natación: surfing-and-swimming
+- Calcetines y Ropa interior: socks-and-underwear
+
+ */
 
 export const ProductList = () => {
+  const {products} = useProducts();
+  // const {types} = useTypes();
+
+  if (products.length === 0) {
+    return null;
+  }
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Product List</Text>
-      <ProductListItem />
+      <View style={styles.selectorWrapp}>
+        <ProductTypeSelector />
+        {/* <ProductTypeSelector data={types} /> */}
+      </View>
+      <FlatList
+        data={products}
+        renderItem={({item}: any) => <Product {...item} />}
+        showsHorizontalScrollIndicator={false}
+        numColumns={2}
+        columnWrapperStyle={styles.verticalScrollContainer}
+      />
     </View>
   );
 };
@@ -15,13 +52,12 @@ export const ProductList = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    borderColor: '#000',
-    borderWidth: 2,
   },
-  text: {
-    color: '#000',
-    fontSize: 20,
-    marginTop: 20,
-    marginBottom: 20,
+  selectorWrapp: {
+    height: 60,
+    marginBottom: 2,
+  },
+  verticalScrollContainer: {
+    justifyContent: 'space-between',
   },
 });

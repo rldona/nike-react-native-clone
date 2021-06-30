@@ -7,6 +7,7 @@ interface Props {
   color?: string;
   backgroundColor?: string;
   children: string;
+  onPress?: any;
 }
 
 enum ButtonSizes {
@@ -26,6 +27,7 @@ export const Button = ({
   color = '#FFF',
   backgroundColor = '#000',
   children,
+  onPress,
 }: Props) => {
   const setButtonStyle = () => {
     return {
@@ -45,7 +47,10 @@ export const Button = ({
   };
 
   return (
-    <TouchableOpacity activeOpacity={0.8} style={setButtonStyle()}>
+    <TouchableOpacity
+      activeOpacity={0.8}
+      style={setButtonStyle()}
+      onPress={onPress}>
       <Text style={setTextButtonStyle()}>{children}</Text>
     </TouchableOpacity>
   );

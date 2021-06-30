@@ -1,20 +1,20 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 
-import {IGenre} from '../../../models/index';
+import {IType} from '../../../models';
 
-export const GenreSelectorItem = ({
+export const ProductTypeSelectorItem = ({
   id,
   name,
   isActive,
-  onSelectGenre,
-}: IGenre) => {
+  onSelectType,
+}: IType) => {
   return (
     <TouchableOpacity
       style={[styles.item, isActive ? styles.itemActive : styles.item]}
       activeOpacity={1}
       onPress={() => {
-        onSelectGenre(id);
+        onSelectType(id);
       }}>
       <Text style={[styles.text, isActive ? styles.textActive : styles.text]}>
         {name}
@@ -37,6 +37,8 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 14,
     color: '#666',
+    paddingLeft: 20,
+    paddingRight: 20,
   },
   textActive: {
     fontSize: 14,

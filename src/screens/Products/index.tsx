@@ -1,6 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useCallback, useEffect} from 'react';
-import {ScrollView, StyleSheet, Text} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 
 import {ProductList} from '../../components/ProductList';
 
@@ -21,19 +21,14 @@ export const ProductsScreen = ({route}: Props) => {
   }, [navigator]);
 
   return (
-    <ScrollView style={styles.container}>
-      <Text style={styles.text}>ProductsScreen</Text>
+    <View style={styles.container}>
       <ProductList />
-    </ScrollView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  text: {
-    textAlign: 'center',
-    fontSize: 30,
   },
 });
