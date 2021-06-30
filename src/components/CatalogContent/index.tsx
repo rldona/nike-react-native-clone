@@ -20,35 +20,43 @@ export const CatalogContent = () => {
 
   // const products = store.products;
 
+  const loading = () => {
+    return (
+      <View style={{...styles.loading, height: heightScreen - 220}}>
+        <Loading />
+      </View>
+    );
+  };
+
+  const content = () => {
+    return (
+      <View>
+        <GenreSelector />
+        <Divider />
+        <HorizontalScroll
+          title="Imprescindibles, superventas y más"
+          // data={products}
+        />
+        <ProductMenu />
+        <Divider />
+        <HorizontalScroll
+          title="Ultimos y próximos lanzamientos"
+          // data={products}
+        />
+        <Divider />
+        <HorizontalScroll
+          title="Colecciones de la selecciones"
+          // data={products}
+        />
+      </View>
+    );
+  };
+
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <H1>Tienda</H1>
       <View style={styles.container}>
-        {store.isLoadingShow ? (
-          <View style={{...styles.loading, height: heightScreen - 220}}>
-            <Loading />
-          </View>
-        ) : (
-          <View>
-            <GenreSelector />
-            <Divider />
-            <HorizontalScroll
-              title="Imprescindibles, superventas y más"
-              // data={products}
-            />
-            <ProductMenu />
-            <Divider />
-            <HorizontalScroll
-              title="Ultimos y próximos lanzamientos"
-              // data={products}
-            />
-            <Divider />
-            <HorizontalScroll
-              title="Colecciones de la selecciones"
-              // data={products}
-            />
-          </View>
-        )}
+        {store.isLoadingShow ? loading() : content()}
       </View>
     </ScrollView>
   );

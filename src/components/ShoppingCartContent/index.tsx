@@ -8,7 +8,7 @@ import {Button} from '../Button';
 import {EmptyResults} from '../EmptyResults';
 
 export const ShoppingCartContent = () => {
-  const {shoppingCart} = useShoppingCart();
+  const {shoppingCart, onPress} = useShoppingCart();
 
   if (shoppingCart.length === 0) {
     return (
@@ -24,7 +24,7 @@ export const ShoppingCartContent = () => {
     <View style={styles.container}>
       <H1>Cesta</H1>
       <View style={styles.buttonContainer}>
-        <Button>Pasar por caja</Button>
+        <Button onPress={onPress}>Pasar por caja</Button>
       </View>
     </View>
   );

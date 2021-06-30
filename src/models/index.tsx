@@ -1,3 +1,15 @@
+export interface IProducts {
+  id: number;
+  type: string;
+  subType: string;
+  genre: string;
+  title: string;
+  description: string;
+  price: number;
+  preview: string;
+  backdrop: string;
+}
+
 export interface IMenuItem {
   id: number;
   title: string;
@@ -14,6 +26,10 @@ export interface IGenre {
   type: string;
   isActive: boolean;
   onSelectGenre: (id: number) => void;
+}
+
+export interface IType extends IGenre {
+  onSelectType: (id: number) => void;
 }
 
 export interface ICategories {

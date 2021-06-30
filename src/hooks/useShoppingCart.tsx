@@ -4,6 +4,10 @@ import {IFavorites} from '../models';
 export function useShoppingCart() {
   const [shoppingCart, setShoppingCart] = useState<IFavorites[]>([]);
 
+  const onPress = () => {
+    console.log('--- press button shopping cart ---');
+  };
+
   const getShoppingCart = async () => {
     const favoriteList = await (
       await fetch('http://localhost:3000/favorites')
@@ -18,5 +22,6 @@ export function useShoppingCart() {
 
   return {
     shoppingCart,
+    onPress,
   };
 }

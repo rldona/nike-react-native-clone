@@ -5,6 +5,7 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 
 import {H1} from '../H1';
 import {Button} from '../Button';
+import {useNavigation} from '@react-navigation/native';
 
 interface Props {
   icon: string;
@@ -13,6 +14,12 @@ interface Props {
 }
 
 export const EmptyResults = ({icon, message, buttonTitle}: Props) => {
+  const navigation = useNavigation();
+
+  const onPress = () => {
+    navigation.navigate('Catalog');
+  };
+
   return (
     <View style={styles.container}>
       <H1>Favoritos</H1>
@@ -25,7 +32,7 @@ export const EmptyResults = ({icon, message, buttonTitle}: Props) => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <Button>{buttonTitle}</Button>
+        <Button onPress={onPress}>{buttonTitle}</Button>
       </View>
     </View>
   );
