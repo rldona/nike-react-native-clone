@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 import {useShoppingCart} from '../../hooks/useShoppingCart';
 
@@ -24,7 +24,9 @@ export const ShoppingCartContent = () => {
     <View style={styles.container}>
       <H1>Cesta</H1>
       <View style={styles.buttonContainer}>
-        <Button onPress={onPress}>Pasar por caja</Button>
+        <Button onPress={onPress}>
+          <Text>Pasar por caja</Text>
+        </Button>
       </View>
     </View>
   );

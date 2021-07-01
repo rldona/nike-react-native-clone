@@ -28,13 +28,13 @@ export const HomeScreen = () => {
           topic="Nuevo baloncesto"
           src="https://static.nike.com/a/images/f_auto/dpr_3.0/h_375,c_limit/0bafb728-2ae2-416f-bb18-5935801c8071/site-oficial-de-nike.png"
         />
-        <Divider />
+        <Divider padding={10} />
         <Card
           title="Alexia Putellas: habilidades prácticas"
           topic="Nuevo fútbol"
           src="https://static.nike.com/a/images/f_auto/dpr_3.0/h_375,c_limit/2c8754ce-6287-4e77-a198-1ad483fba257/site-oficial-de-nike.png"
         />
-        <Divider />
+        <Divider padding={10} />
         <Card
           title="María y Jorge: habilidades educativas"
           topic="Nuevo niños"

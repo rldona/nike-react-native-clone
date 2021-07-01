@@ -33,18 +33,18 @@ export const CatalogContent = () => {
     return (
       <View>
         <FilterSelector filter="genres" />
-        <Divider />
+        <Divider padding={10} />
         <HorizontalScroll
           title="Imprescindibles, superventas y más"
           // data={products}
         />
         <ProductMenu />
-        <Divider />
+        <Divider padding={10} />
         <HorizontalScroll
           title="Ultimos y próximos lanzamientos"
           // data={products}
         />
-        <Divider />
+        <Divider padding={10} />
         <HorizontalScroll
           title="Colecciones de la selecciones"
           // data={products}

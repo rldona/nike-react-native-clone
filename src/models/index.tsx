@@ -2,7 +2,9 @@ export interface IProducts {
   id: number;
   type: string;
   subType: string;
+  subTypeName: string;
   genre: string;
+  genreName: string;
   title: string;
   description: string;
   price: number;

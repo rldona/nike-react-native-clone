@@ -1,8 +1,16 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
-export const Divider = () => {
-  return <View style={styles.container} />;
+interface Props {
+  padding: number;
+}
+
+export const Divider = ({padding}: Props) => {
+  return (
+    <View
+      style={{...styles.container, paddingTop: padding, paddingBottom: padding}}
+    />
+  );
 };
 
 const styles = StyleSheet.create({

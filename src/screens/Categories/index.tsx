@@ -1,6 +1,6 @@
 import React from 'react';
-import {useNavigation} from '@react-navigation/native';
 import {ScrollView, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 import {useCategories} from '../../hooks/useCategories';
 
