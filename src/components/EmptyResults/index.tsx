@@ -32,7 +32,9 @@ export const EmptyResults = ({icon, message, buttonTitle}: Props) => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <Button onPress={onPress}>{buttonTitle}</Button>
+        <Button onPress={onPress}>
+          <Text>{buttonTitle}</Text>
+        </Button>
       </View>
     </View>
   );

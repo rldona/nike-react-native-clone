@@ -4,7 +4,6 @@ import {FlatList, StyleSheet, View} from 'react-native';
 import {useProducts} from '../../hooks/useProducts';
 
 import {Product} from '../Product';
-import {FilterSelector} from '../FilterSelector';
 
 /**
 
@@ -27,7 +26,6 @@ ROPA: clothing
 
 export const ProductList = () => {
   const {products} = useProducts();
-  // const {types} = useTypes();
 
   if (products.length === 0) {
     return null;
@@ -35,9 +33,6 @@ export const ProductList = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.selectorWrapp}>
-        <FilterSelector filter="clothing" />
-      </View>
       <FlatList
         data={products}
         renderItem={({item}: any) => <Product {...item} />}
@@ -52,10 +47,6 @@ export const ProductList = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  selectorWrapp: {
-    height: 60,
-    marginBottom: 2,
   },
   verticalScrollContainer: {
     justifyContent: 'space-between',

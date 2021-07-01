@@ -20,7 +20,7 @@ export const Card = ({title, topic, src}: Props) => {
         <Text style={styles.h1}>{title}</Text>
         <View style={styles.buttonContainer}>
           <Button size="small" color="#000" backgroundColor="#FFF">
-            Más información
+            <Text>Más información</Text>
           </Button>
         </View>
       </View>

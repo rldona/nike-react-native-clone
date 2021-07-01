@@ -5,18 +5,21 @@ interface Props {
   size?: string;
   textSize?: number;
   color?: string;
+  border?: string;
   backgroundColor?: string;
-  children: string;
+  children: JSX.Element;
   onPress?: any;
 }
 
 enum ButtonSizes {
+  'tiny' = 3,
   'small' = 10,
   'medium' = 16,
   'large' = 18,
 }
 
 enum TextSizes {
+  'tiny' = 10,
   'small' = 14,
   'medium' = 16,
   'large' = 18,
@@ -25,6 +28,7 @@ enum TextSizes {
 export const Button = ({
   size = 'large',
   color = '#FFF',
+  border = '#000',
   backgroundColor = '#000',
   children,
   onPress,
@@ -35,6 +39,7 @@ export const Button = ({
       padding: ButtonSizes[size as keyof typeof ButtonSizes],
       width: '100%',
       backgroundColor,
+      borderColor: border,
     };
   };
 
@@ -59,6 +64,7 @@ export const Button = ({
 const styles = StyleSheet.create({
   button: {
     borderRadius: 50,
+    borderWidth: 1,
   },
   textButton: {
     fontWeight: '600',
