@@ -1,6 +1,6 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useCallback, useContext, useEffect, useState} from 'react';
+import React, {useCallback, useContext, useEffect} from 'react';
 import {Modal, StyleSheet, Text, View, ScrollView} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {Context} from '../../context/options';
@@ -61,7 +61,7 @@ export const ProductsScreen = ({route}: Props) => {
                 backgroundColor="#FFF"
                 color="#000"
                 border="#000">
-                <Text>Reestablecer(2)</Text>
+                <Text>Reestablecer(0)</Text>
               </Button>
             </View>
             <View style={styles.buttonView}>

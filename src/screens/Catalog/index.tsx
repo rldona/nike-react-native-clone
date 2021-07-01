@@ -126,6 +126,14 @@ export const CatalogStackScreen = () => {
               <EvilIcons name="chevron-left" size={40} color="#000" />
             </TouchableOpacity>
           ),
+          headerRight: () => (
+            <TouchableOpacity
+              activeOpacity={1}
+              onPress={() => navigation.navigate('Search')}
+              style={styles.iconSearch}>
+              <EvilIcons name="search" size={25} color="#000" />
+            </TouchableOpacity>
+          ),
         }}
       />
     </HomeStack.Navigator>
@@ -141,6 +149,9 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
+    marginRight: 20,
+  },
+  iconSearch: {
     marginRight: 20,
   },
 });

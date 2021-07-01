@@ -5,7 +5,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {Context} from '../../context/options';
 
-export const Product = ({title, backdrop}: any) => {
+export const Product = ({id, title, preview}: any) => {
   const {store}: any = useContext(Context);
 
   const navigation = useNavigation();
@@ -13,12 +13,14 @@ export const Product = ({title, backdrop}: any) => {
   return (
     <TouchableOpacity
       activeOpacity={1}
-      onPress={() => navigation.navigate('ProductDetail')}>
+      onPress={() => {
+        navigation.navigate('ProductDetail', {id, title});
+      }}>
       <View style={styles.container}>
         <Image
           style={styles.backdrop}
           source={{
-            uri: backdrop,
+            uri: preview,
           }}
         />
         <Text style={styles.title}>{title}</Text>

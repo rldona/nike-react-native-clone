@@ -25,7 +25,7 @@ ROPA: clothing
  */
 
 export const ProductList = () => {
-  const {products} = useProducts();
+  const {products} = useProducts(0);
 
   if (products.length === 0) {
     return null;
