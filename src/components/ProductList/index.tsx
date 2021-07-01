@@ -2,8 +2,9 @@ import React from 'react';
 import {FlatList, StyleSheet, View} from 'react-native';
 
 import {useProducts} from '../../hooks/useProducts';
-import {ProductTypeSelector} from '../ProductTypeSelector';
+
 import {Product} from '../Product';
+import {FilterSelector} from '../FilterSelector';
 
 /**
 
@@ -35,8 +36,7 @@ export const ProductList = () => {
   return (
     <View style={styles.container}>
       <View style={styles.selectorWrapp}>
-        <ProductTypeSelector />
-        {/* <ProductTypeSelector data={types} /> */}
+        <FilterSelector filter="clothing" />
       </View>
       <FlatList
         data={products}

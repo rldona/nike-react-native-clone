@@ -3,11 +3,12 @@ import {Dimensions, ScrollView, StyleSheet, View} from 'react-native';
 
 import {H1} from '../../components/H1';
 import {ProductMenu} from '../../components/ProductMenu';
-import {GenreSelector} from '../../components/GenreSelector';
 import {HorizontalScroll} from '../../components/HorizontalScroll';
 import {Divider} from '../../components/Divider';
 import {Context} from '../../context/options';
 import {Loading} from '../Loading';
+
+import {FilterSelector} from '../FilterSelector';
 
 let heightScreen = Dimensions.get('window').height;
 
@@ -31,7 +32,7 @@ export const CatalogContent = () => {
   const content = () => {
     return (
       <View>
-        <GenreSelector />
+        <FilterSelector filter="genres" />
         <Divider />
         <HorizontalScroll
           title="Imprescindibles, superventas y más"

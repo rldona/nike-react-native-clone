@@ -157,14 +157,19 @@
       "name": "Niño/a"
     }
   ],
-  "types": [
+  "clothing": [
     {
       "id": 0,
+      "type": "all",
+      "name": "Todo"
+    },
+    {
+      "id": 1,
       "type": "top-parts",
       "name": "Partes de arriba"
     },
     {
-      "id": 1,
+      "id": 2,
       "type": "hoodies-and-sweatshirts",
       "name": "Sudaderas con y sin capucha"
     }

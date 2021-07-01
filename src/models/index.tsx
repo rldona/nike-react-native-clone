@@ -20,6 +20,15 @@ export interface IProductMenu {
   backgrounds: string[];
 }
 
+export interface IFilter {
+  id: number;
+  name: string;
+  type: string;
+  subType: string;
+  isActive: boolean;
+  onFilterSelected: (id: number, subType: string) => void;
+}
+
 export interface IGenre {
   id: number;
   name: string;

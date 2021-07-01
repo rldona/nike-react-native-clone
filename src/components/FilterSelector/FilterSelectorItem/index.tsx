@@ -1,20 +1,21 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 
-import {IType} from '../../../models';
+import {IFilter} from '../../../models/index';
 
-export const ProductTypeSelectorItem = ({
+export const FilterSelectorItem = ({
   id,
+  type,
   name,
   isActive,
-  onSelectType,
-}: IType) => {
+  onFilterSelected,
+}: IFilter) => {
   return (
     <TouchableOpacity
       style={[styles.item, isActive ? styles.itemActive : styles.item]}
       activeOpacity={1}
       onPress={() => {
-        onSelectType(id);
+        onFilterSelected(id, type);
       }}>
       <Text style={[styles.text, isActive ? styles.textActive : styles.text]}>
         {name}
@@ -37,8 +38,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 14,
     color: '#666',
-    paddingLeft: 20,
-    paddingRight: 20,
   },
   textActive: {
     fontSize: 14,
