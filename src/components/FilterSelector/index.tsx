@@ -1,23 +1,23 @@
 import React from 'react';
 import {ScrollView, StyleSheet} from 'react-native';
 
-import {IType} from '../../models';
-import {useTypes} from '../../hooks/useTypes';
-import {ProductTypeSelectorItem} from './ProductTypeSelectorItem';
+import {IFilter} from '../../models';
+import {useFilters} from '../../hooks/useFilters';
+import {FilterSelectorItem} from './FilterSelectorItem';
 
-export const ProductTypeSelector = () => {
-  const {types, onSelectType} = useTypes();
+export const FilterSelector = ({filter}: any) => {
+  const {filters, onFilterSelected} = useFilters(filter);
 
   return (
     <ScrollView
       style={styles.container}
       horizontal
       showsHorizontalScrollIndicator={false}>
-      {types.map((type: IType) => (
-        <ProductTypeSelectorItem
-          {...type}
-          key={type.id}
-          onSelectType={onSelectType}
+      {filters.map((item: IFilter) => (
+        <FilterSelectorItem
+          {...item}
+          key={item.id}
+          onFilterSelected={onFilterSelected}
         />
       ))}
     </ScrollView>
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     flexWrap: 'nowrap',
     flexDirection: 'row',
     marginTop: 20,
-    paddingLeft: 0,
+    paddingLeft: 20,
     paddingRight: 20,
     borderBottomWidth: 1,
     borderBottomColor: '#DDD',
