@@ -13,7 +13,9 @@ import {FilterSelector} from '../FilterSelector';
 let heightScreen = Dimensions.get('window').height;
 
 export const CatalogContent = () => {
-  const {store}: any = useContext(Context);
+  const {
+    store: {isLoadingShow},
+  }: any = useContext(Context);
 
   // 1. useEffect()
   // 2. getProducts() => axios.get()
@@ -57,7 +59,7 @@ export const CatalogContent = () => {
     <ScrollView showsVerticalScrollIndicator={false}>
       <H1>Tienda</H1>
       <View style={styles.container}>
-        {store.isLoadingShow ? loading() : content()}
+        {isLoadingShow ? loading() : content()}
       </View>
     </ScrollView>
   );
