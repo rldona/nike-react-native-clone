@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react';
+
 import {IPopular} from '../models';
 
 export function usePopular() {
