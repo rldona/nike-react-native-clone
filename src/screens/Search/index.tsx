@@ -9,10 +9,9 @@ import {
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
-import EvilIcons from 'react-native-vector-icons/Ionicons';
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
 
 import {Button} from '../../components/Button';
-import {H1} from '../../components/H1';
 
 export const SearchScreen = () => {
   const [text, onChangeText] = useState('');
@@ -22,7 +21,7 @@ export const SearchScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.topContainer}>
-        <EvilIcons name="search" size={20} color="#000" />
+        <EvilIcons name="search" size={30} color="#000" />
         <TextInput
           style={styles.input}
           onChangeText={onChangeText}
@@ -74,11 +73,11 @@ const styles = StyleSheet.create({
   },
   topContainer: {
     position: 'absolute',
-    top: 40,
+    top: 45,
     left: 0,
     width: '100%',
     marginBottom: 20,
-    paddingLeft: 20,
+    paddingLeft: 15,
     justifyContent: 'space-between',
     flexDirection: 'row',
     borderBottomWidth: 1,
@@ -88,7 +87,7 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 40,
-    width: '75%',
+    width: '70%',
     paddingLeft: 20,
   },
   cancelButton: {
@@ -96,7 +95,7 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
   searchContent: {
-    paddingTop: 40,
+    paddingTop: 45,
     paddingLeft: 20,
     paddingRight: 20,
   },
