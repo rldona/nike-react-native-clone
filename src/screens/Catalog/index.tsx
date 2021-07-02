@@ -17,7 +17,14 @@ const HomeStack = createStackNavigator();
 
 export const CatalogStackScreen = () => {
   const {dispatch}: any = useContext(Context);
+
   const navigation = useNavigation();
+
+  const forFade = ({current}: any) => ({
+    cardStyle: {
+      opacity: current.progress,
+    },
+  });
 
   return (
     <HomeStack.Navigator
@@ -45,6 +52,7 @@ export const CatalogStackScreen = () => {
         component={SearchScreen}
         options={{
           title: '',
+          headerShown: false,
           headerLeft: () => (
             <TouchableOpacity
               activeOpacity={1}
@@ -52,6 +60,7 @@ export const CatalogStackScreen = () => {
               <EvilIcons name="chevron-left" size={40} color="#000" />
             </TouchableOpacity>
           ),
+          cardStyleInterpolator: forFade,
         }}
       />
       <HomeStack.Screen
@@ -131,7 +140,7 @@ export const CatalogStackScreen = () => {
               activeOpacity={1}
               onPress={() => navigation.navigate('Search')}
               style={styles.iconSearch}>
-              <EvilIcons name="search" size={25} color="#000" />
+              <EvilIcons name="search" size={30} color="#000" />
             </TouchableOpacity>
           ),
         }}
