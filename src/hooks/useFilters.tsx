@@ -1,17 +1,21 @@
-import {useEffect, useState} from 'react';
+import {useContext, useEffect, useState} from 'react';
 
 import {IFilter} from '../models';
+import {Context} from '../context/options';
 
 export function useFilters(filterName: string) {
+  const {dispatch}: any = useContext(Context);
   const [filters, setFilters] = useState<IFilter[]>([]);
 
-  const onFilterSelected = (id: number, subType: string) => {
+  const onFilterSelected = (id: number) => {
     let newFilters: IFilter[] = filters;
 
     newFilters.forEach(filter => (filter.isActive = false));
     newFilters[id].isActive = true;
 
-    console.log(subType);
+    if (filterName === 'genres') {
+      dispatch({type: 'SET_CURRENT_GENRE', payload: id});
+    }
 
     setFilters([...newFilters]);
   };

@@ -23,7 +23,11 @@ export const Product = ({id, title, preview}: any) => {
             uri: preview,
           }}
         />
-        <Text style={styles.title}>{title}</Text>
+        <View style={styles.info}>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.subType}>Partes de arriba</Text>
+          <Text style={styles.title}>159.99 €</Text>
+        </View>
       </View>
       {store.isFavoriteEdited ? (
         <View style={styles.favoriteIcon}>
@@ -48,9 +52,19 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     width: 190,
   },
+  info: {
+    paddingLeft: 10,
+  },
   title: {
-    fontSize: 14,
+    fontSize: 12,
     width: 180,
+    marginBottom: 3,
+  },
+  subType: {
+    fontSize: 12,
+    width: 180,
+    color: '#666',
+    marginBottom: 3,
   },
   backdrop: {
     height: 200,
