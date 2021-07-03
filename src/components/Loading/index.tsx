@@ -15,12 +15,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
-    // position: 'absolute',
-    // top: 0,
-    // right: 0,
-    // zIndex: 999,
-    // width: '100%',
-    // height: '100%',
-    // backgroundColor: '#FFF',
   },
 });

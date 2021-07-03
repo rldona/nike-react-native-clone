@@ -11,7 +11,7 @@ export function useShoppingCart() {
 
   const getShoppingCart = async () => {
     const favoriteList = await (
-      await fetch('http://localhost:3000/favorites')
+      await fetch('http://localhost:3000/shopping-cart')
     ).json();
 
     setShoppingCart(favoriteList);
