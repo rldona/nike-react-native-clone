@@ -9,7 +9,11 @@ import {Button} from '../Button';
 import {Loading} from '../Loading';
 
 import {getProduct} from '../../services/productsService';
-import {createFavorite, getFavorites} from '../../services/favoritesService';
+import {
+  createFavorite,
+  getFavorites,
+  removeFavorite,
+} from '../../services/favoritesService';
 
 const queryClient = new QueryClient();
 
@@ -26,6 +30,15 @@ export const ProductDetail = ({
   const favorites = useQuery('favorites', getFavorites);
 
   const mutation = useMutation(createFavorite, {
+    onSuccess: () => {
+      queryClient.invalidateQueries('favorites');
+    },
+    onError: (e: any) => {
+      console.log(e);
+    },
+  });
+
+  const removeMutation = useMutation(removeFavorite, {
     onSuccess: () => {
       queryClient.invalidateQueries('favorites');
     },
@@ -61,8 +74,9 @@ export const ProductDetail = ({
     }
   };
 
-  const removeFavorite = () => {
+  const deleteFavorite = () => {
     console.log('removed favorite');
+    removeMutation.mutate(id);
     setIsFavorite(false);
   };
 
@@ -113,7 +127,7 @@ export const ProductDetail = ({
             backgroundColor="#FFF"
             color="#000"
             border="#000"
-            onPress={removeFavorite}>
+            onPress={deleteFavorite}>
             <Text>En favoritos</Text>
           </Button>
         ) : (
