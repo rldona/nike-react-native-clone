@@ -29,9 +29,6 @@ export const Product = ({id, title, preview}: any) => {
   //   },
   // });
 
-  //
-  // Eliinar con cuando esté creado el hook
-  //
   const removeMutation = useMutation(removeFavorite, {
     onSuccess: () => {
       queryClient.refetchQueries();
