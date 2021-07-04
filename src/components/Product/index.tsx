@@ -1,14 +1,74 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {QueryClient, useMutation} from 'react-query';
 
+import {removeFavorite} from '../../services/favoritesService';
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import {Context} from '../../context/options';
 
 export const Product = ({id, title, preview}: any) => {
-  const {store}: any = useContext(Context);
+  const [isFavorite, setIsFavorite] = useState(false);
 
+  const {
+    store: {isFavoriteEdited},
+  }: any = useContext(Context);
+
+  const queryClient = new QueryClient();
   const navigation = useNavigation();
+
+  // const {data: product} = useQuery(['product', id], () => getProduct(id));
+
+  // const createMutation = useMutation(createFavorite, {
+  //   onSuccess: () => {
+  //     queryClient.invalidateQueries('favorites');
+  //   },
+  //   onError: (e: any) => {
+  //     console.log(e);
+  //   },
+  // });
+
+  //
+  // Eliinar con cuando esté creado el hook
+  //
+  const removeMutation = useMutation(removeFavorite, {
+    onSuccess: () => {
+      queryClient.refetchQueries();
+    },
+    onError: (e: any) => {
+      console.log(e);
+    },
+  });
+
+  // Favorite hoook (useFavorites)
+  // Methods:
+  // - addFavorite()
+  // - removeFavorite()
+  // - isFavorite()
+
+  /** useFavorte para coger el metodo 'getIsFavorite' y hacer un useEffect y cambiar el estado 'isFavorite' **/
+
+  // const addFavorite = () => {
+  //   if (!isLoading && !findElementArray(favorites, id)) {
+  //     createMutation.mutate(product?.data);
+  //   }
+  // };
+
+  const deleleFavorite = () => {
+    removeMutation.mutate(id);
+  };
+
+  const onPress = () => {
+    if (isFavorite) {
+      deleleFavorite();
+    } else {
+      // addFavorite();
+      console.log('add favorite');
+    }
+
+    setIsFavorite(!isFavorite);
+  };
 
   return (
     <TouchableOpacity
@@ -29,15 +89,15 @@ export const Product = ({id, title, preview}: any) => {
           <Text style={styles.title}>159.99 €</Text>
         </View>
       </View>
-      {store.isFavoriteEdited ? (
+      {isFavoriteEdited ? (
         <View style={styles.favoriteIcon}>
-          <TouchableOpacity
-            activeOpacity={1}
-            onPress={() =>
-              console.log('-- remove favorite from store and axios.delete --')
-            }>
+          <TouchableOpacity activeOpacity={1} onPress={onPress}>
             <View>
-              <MaterialIcons name="heart" size={20} color="#000" />
+              {isFavorite ? (
+                <MaterialIcons name="heart" size={20} color="#000" />
+              ) : (
+                <EvilIcons name="heart" size={24} color="#000" />
+              )}
             </View>
           </TouchableOpacity>
         </View>

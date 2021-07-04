@@ -9,6 +9,7 @@ import {Button} from '../Button';
 import {Loading} from '../Loading';
 
 import {getProduct} from '../../services/productsService';
+import {findElementArray} from '../../utils/index';
 import {
   createFavorite,
   getFavorites,
@@ -48,12 +49,7 @@ export const ProductDetail = ({
   });
 
   const addFavorite = () => {
-    let favoritesData: any = favorites.data?.data;
-    let favoriteAlreadyExists = favoritesData.find(
-      (i: any) => i.id === parseInt(id, 10),
-    );
-
-    if (typeof favoriteAlreadyExists === 'undefined') {
+    if (!isLoading && !findElementArray(favorites, id)) {
       mutation.mutate(product?.data);
 
       setIsFavorite(true);
@@ -83,18 +79,10 @@ export const ProductDetail = ({
   useEffect(() => {
     navigation.setOptions({title});
 
-    /***** Create hook *****/
-    if (!isLoading) {
-      let favoritesData: any = favorites.data?.data;
-      let favoriteAlreadyExists = favoritesData.find(
-        (i: any) => i.id === parseInt(id, 10),
-      );
-      if (typeof favoriteAlreadyExists !== 'undefined') {
-        setIsFavorite(true);
-      }
+    if (!isLoading && findElementArray(favorites, id)) {
+      setIsFavorite(true);
     }
-    /***** Create hook *****/
-  }, [navigation, title, favorites.data?.data, id, isLoading]);
+  }, [navigation, title, favorites, id, isLoading]);
 
   if (isLoading) {
     return <Loading />;

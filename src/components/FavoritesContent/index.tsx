@@ -24,8 +24,10 @@ export const FavoritesContent = ({navigation}: any) => {
   }: any = useContext(Context);
 
   useEffect(() => {
-    return navigation.addListener('focus', () => refetch());
-  }, [navigation, dispatch, refetch]);
+    return navigation.addListener('focus', () => {
+      refetch();
+    });
+  }, [navigation, refetch]);
 
   if (isFetching || isLoading) {
     return <Loading />;
