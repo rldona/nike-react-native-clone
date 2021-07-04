@@ -38,3 +38,13 @@ export const getCurrentDate = () => {
 export const wait = (timeout: number) => {
   return new Promise(resolve => setTimeout(resolve, timeout));
 };
+
+export const findElementArray = (arr: any, id: string) => {
+  let favoritesData: any = arr.data?.data;
+
+  let favoriteAlreadyExists = favoritesData.find(
+    (i: any) => i.id === parseInt(id, 10),
+  );
+
+  return typeof favoriteAlreadyExists === 'undefined' ? false : true;
+};

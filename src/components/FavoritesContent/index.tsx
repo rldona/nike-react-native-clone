@@ -1,41 +1,39 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {useQuery} from 'react-query';
 
-import {wait} from '../../utils';
 import {Context} from '../../context/options';
-import {useFavorites} from '../../hooks/useFavorites';
+import {getFavorites} from '../../services/favoritesService';
 
 import {H1} from '../H1';
 import {Product} from '../Product';
 import {EmptyResults} from '../EmptyResults';
+import {Loading} from '../Loading';
 
-export const FavoritesContent = () => {
-  const [refreshing, setRefreshing] = useState(false);
+export const FavoritesContent = ({navigation}: any) => {
+  const {
+    isFetching,
+    isLoading,
+    refetch,
+    data: favorites,
+  } = useQuery('favorites', getFavorites);
+
   const {
     store: {isFavoriteEdited, showEditFavoritesButton},
     dispatch,
   }: any = useContext(Context);
 
-  const {favorites} = useFavorites();
-
-  const onRefresh = React.useCallback(() => {
-    setRefreshing(true);
-    dispatch({type: 'SHOW_LOADING', payload: true});
-
-    // Facke promise => REMOVE
-    wait(2000).then(() => {
-      setRefreshing(false);
-      dispatch({type: 'SHOW_LOADING', payload: false});
+  useEffect(() => {
+    return navigation.addListener('focus', () => {
+      refetch();
     });
+  }, [navigation, refetch]);
 
-    // 1. getFavorites() => axios.get()
-    // 2. setRefreshing(false) => when the promise finish
-    // 3. save data on store => products
+  if (isFetching || isLoading) {
+    return <Loading />;
+  }
 
-    /*** Try React Query :) ***/
-  }, [dispatch]);
-
-  if (favorites.length === 0) {
+  if (favorites?.data.length === 0) {
     return (
       <EmptyResults
         message={
@@ -50,7 +48,7 @@ export const FavoritesContent = () => {
   return (
     <View style={styles.container}>
       <FlatList
-        data={favorites}
+        data={favorites?.data}
         renderItem={({item}) => <Product {...item} />}
         numColumns={2}
         showsVerticalScrollIndicator={false}
@@ -71,8 +69,6 @@ export const FavoritesContent = () => {
             </TouchableOpacity>
           </>
         )}
-        onRefresh={onRefresh}
-        refreshing={refreshing}
         columnWrapperStyle={styles.verticalScrollContainer}
       />
     </View>

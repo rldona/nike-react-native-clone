@@ -1,23 +1,91 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Image, StyleSheet, Text, ScrollView, View} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import Snackbar from 'react-native-snackbar';
 
-import {useProducts} from '../../hooks/useProducts';
+import {QueryClient, useQuery, useMutation} from 'react-query';
 
 import {Divider} from '../Divider';
 import {Button} from '../Button';
+import {Loading} from '../Loading';
 
-export const ProductDetail = ({route}: any) => {
-  const {product} = useProducts(route.params.id);
+import {getProduct} from '../../services/productsService';
+import {findElementArray} from '../../utils/index';
+import {
+  createFavorite,
+  getFavorites,
+  removeFavorite,
+} from '../../services/favoritesService';
 
-  const navigation = useNavigation();
+const queryClient = new QueryClient();
+
+export const ProductDetail = ({
+  route: {
+    params: {id, title},
+  },
+  navigation,
+}: any) => {
+  const {isLoading, data: product} = useQuery(['product', id], () =>
+    getProduct(id),
+  );
+  const [isFavorite, setIsFavorite] = useState(false);
+  const favorites = useQuery('favorites', getFavorites);
+
+  const mutation = useMutation(createFavorite, {
+    onSuccess: () => {
+      queryClient.invalidateQueries('favorites');
+    },
+    onError: (e: any) => {
+      console.log(e);
+    },
+  });
+
+  const removeMutation = useMutation(removeFavorite, {
+    onSuccess: () => {
+      queryClient.invalidateQueries('favorites');
+    },
+    onError: (e: any) => {
+      console.log(e);
+    },
+  });
+
+  const addFavorite = () => {
+    if (!isLoading && !findElementArray(favorites, id)) {
+      mutation.mutate(product?.data);
+
+      setIsFavorite(true);
+
+      Snackbar.show({
+        text: 'Añadido a favoritos',
+        duration: 3000,
+        textColor: '#FFF',
+        backgroundColor: '#00b64a',
+      });
+    } else {
+      Snackbar.show({
+        text: 'El favorito ya está guardado',
+        duration: 3000,
+        textColor: '#FFF',
+        backgroundColor: '#000',
+      });
+    }
+  };
+
+  const deleteFavorite = () => {
+    console.log('removed favorite');
+    removeMutation.mutate(id);
+    setIsFavorite(false);
+  };
 
   useEffect(() => {
-    navigation.setOptions({title: route.params.title});
-  }, [navigation, route]);
+    navigation.setOptions({title});
 
-  if (!product) {
-    return null;
+    if (!isLoading && findElementArray(favorites, id)) {
+      setIsFavorite(true);
+    }
+  }, [navigation, title, favorites, id, isLoading]);
+
+  if (isLoading) {
+    return <Loading />;
   }
 
   return (
@@ -27,23 +95,39 @@ export const ProductDetail = ({route}: any) => {
       <Image
         style={styles.backdrop}
         source={{
-          uri: product.backdrop,
+          uri: product?.data.backdrop,
         }}
       />
       <Text style={styles.preTitle}>
-        {product.subTypeName} - {product.genreName}
+        {product?.data.subTypeName} - {product?.data.genreName}
       </Text>
-      <Text style={styles.title}>{product.title}</Text>
-      <Text style={styles.price}>{product.price} €</Text>
-      <Text style={styles.description}>{product.description}</Text>
+      <Text style={styles.title}>{product?.data.title}</Text>
+      <Text style={styles.price}>{product?.data.price} €</Text>
+      <Text style={styles.description}>{product?.data.description}</Text>
       <View style={styles.buttonContainer}>
         <Button size="medium">
           <Text>Añadir a la cesta</Text>
         </Button>
         <Divider padding={7} />
-        <Button size="medium" backgroundColor="#FFF" color="#000" border="#000">
-          <Text>Añadir a tus favoritos</Text>
-        </Button>
+        {isFavorite ? (
+          <Button
+            size="medium"
+            backgroundColor="#FFF"
+            color="#000"
+            border="#000"
+            onPress={deleteFavorite}>
+            <Text>En favoritos</Text>
+          </Button>
+        ) : (
+          <Button
+            size="medium"
+            backgroundColor="#FFF"
+            color="#000"
+            border="#000"
+            onPress={addFavorite}>
+            <Text>Añadir a tus favoritos</Text>
+          </Button>
+        )}
       </View>
     </ScrollView>
   );
