@@ -1,23 +1,12 @@
-import {useEffect, useState} from 'react';
+import {useQuery} from 'react-query';
 
-import {IFavorites} from '../models';
+import {getFavorites} from '../services/favoritesService';
 
 export function useFavorites() {
-  const [favorites, setFavorites] = useState<IFavorites[]>([]);
-
-  const getFavorites = async () => {
-    const favoriteList = await (
-      await fetch('http://localhost:3000/favorites')
-    ).json();
-
-    setFavorites(favoriteList);
-  };
-
-  useEffect(() => {
-    getFavorites();
-  }, []);
+  const query = useQuery('favorites', getFavorites);
 
   return {
-    favorites,
+    favorites: query || [],
+    query,
   };
 }
