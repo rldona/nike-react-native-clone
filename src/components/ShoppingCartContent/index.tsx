@@ -13,9 +13,10 @@ export const ShoppingCartContent = () => {
   if (shoppingCart.length === 0) {
     return (
       <EmptyResults
-        message={'Tu cesta está vacía. Cuando añadas productos aparecerán aquí'}
-        buttonTitle={'Comprar ahora'}
-        icon={'cart'}
+        title="Cesta"
+        message="Tu cesta está vacía. Cuando añadas productos aparecerán aquí"
+        buttonTitle="Comprar ahora"
+        icon="cart"
       />
     );
   }

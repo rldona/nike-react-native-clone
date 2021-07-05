@@ -8,12 +8,13 @@ import {Button} from '../Button';
 import {useNavigation} from '@react-navigation/native';
 
 interface Props {
+  title: string;
   icon: string;
   message: string;
   buttonTitle: string;
 }
 
-export const EmptyResults = ({icon, message, buttonTitle}: Props) => {
+export const EmptyResults = ({title, icon, message, buttonTitle}: Props) => {
   const navigation = useNavigation();
 
   const onPress = () => {
@@ -22,7 +23,7 @@ export const EmptyResults = ({icon, message, buttonTitle}: Props) => {
 
   return (
     <View style={styles.container}>
-      <H1>Favoritos</H1>
+      <H1>{title}</H1>
 
       <View style={styles.messageContainer}>
         <View style={styles.iconContainer}>
@@ -52,10 +53,13 @@ const styles = StyleSheet.create({
   iconContainer: {
     borderColor: '#000',
     borderWidth: 1,
-    padding: 14,
+    paddingTop: 12,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingBottom: 12,
     borderRadius: 100,
     marginBottom: 20,
-    width: 57,
+    width: 50,
     alignSelf: 'center',
   },
   icon: {

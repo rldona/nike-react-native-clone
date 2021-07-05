@@ -1,5 +1,7 @@
 # Nike React Native clone
 
+![alt text](./src/assets/images/github/github-preview.png 'App preview')
+
 ### Start local db server
 
 ```terminal
@@ -70,4 +72,3 @@ yarn start testing
 #### IMPROVE
 
 - [ ] Modify the transition between screens (multi-stack).
-
