@@ -40,7 +40,7 @@ export const wait = (timeout: number) => {
 };
 
 export const findElementArray = (arr: any, id: string) => {
-  let favoritesData: any = arr.data?.data;
+  let favoritesData: any = arr.data;
 
   let favoriteAlreadyExists = favoritesData.find(
     (i: any) => i.id === parseInt(id, 10),

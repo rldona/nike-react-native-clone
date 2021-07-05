@@ -10,6 +10,7 @@ import {Loading} from '../Loading';
 
 import {getProduct} from '../../services/productsService';
 import {findElementArray} from '../../utils/index';
+
 import {
   createFavorite,
   getFavorites,
@@ -24,13 +25,13 @@ export const ProductDetail = ({
   },
   navigation,
 }: any) => {
+  const [isFavorite, setIsFavorite] = useState(false);
+  const {data: favorites} = useQuery('favorites', getFavorites);
   const {isLoading, data: product} = useQuery(['product', id], () =>
     getProduct(id),
   );
-  const [isFavorite, setIsFavorite] = useState(false);
-  const favorites = useQuery('favorites', getFavorites);
 
-  const mutation = useMutation(createFavorite, {
+  const createMutation = useMutation(createFavorite, {
     onSuccess: () => {
       queryClient.invalidateQueries('favorites');
     },
@@ -50,7 +51,7 @@ export const ProductDetail = ({
 
   const addFavorite = () => {
     if (!isLoading && !findElementArray(favorites, id)) {
-      mutation.mutate(product?.data);
+      createMutation.mutate(product?.data);
 
       setIsFavorite(true);
 
