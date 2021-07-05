@@ -42,7 +42,7 @@ yarn start testing
 - [ ] Modify the 'Product' component to accept different sizes: small, medium and large.
 - [ ] Add Formik and Yup for the validation of the forms.
 - [ ] Add Firebase ReactNative for login authentication.
-- [ ] Validate React Query for asynchronous calls from the store.
+- [x] Validate React Query for asynchronous calls from the store.
 - [ ] Add HTTP calls (axios) from the 'Horizontal Gender Selector'.
 - [ ] Add skeleton of presentation of products and favorites.
 - [x] Add message when there are no saved favorites + 'Buy now' button that redirects to the main store (ShopScreen).
@@ -52,22 +52,22 @@ yarn start testing
 - [ ] Add horizontal slide functionality in shopping cart for product item to: 1. Save to favorites and 2. Remove from shopping cart
 - [ ] Create promotion component. Validate a fake promotion.
 - [ ] Create subtotal and total component of the purchase made.
-- [ ] Create 'Product List'
-- [ ] Create 'Product Detail' screen
+- [x] Create 'Product List'
+- [x] Create 'Product Detail' screen
 - [ ] Create the filtering modal for the 'Product List' screen
 - [ ] Modify horizontal filtering (genders: Man, Woman and Children) so that it also serves to filter the list of products (All, Sneakers, Top parts, etc)
-- [ ] Create 'Search' page + animations
+- [x] Create 'Search' page + animations
 - [ ] Create 'Profile' page
 
 #### API
 
-- [ ] Add Axios provider
-- [ ] Add Axios requests
+- [x] Add Axios provider
+- [x] Add Axios requests
 - [ ] Filter Products by gender
 
 #### DB
 
-- [ ] Add product list (products)
+- [x] Add product list (products)
 
 #### IMPROVE
 
