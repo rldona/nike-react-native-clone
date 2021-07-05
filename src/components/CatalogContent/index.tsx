@@ -17,6 +17,12 @@ export const CatalogContent = () => {
     store: {isLoadingShow},
   }: any = useContext(Context);
 
+  // 1. useEffect()
+  // 2. getProducts() => axios.get()
+  // 3. save data on store => products
+
+  // const products = store.products;
+
   const loading = () => {
     return (
       <View style={{...styles.loading, height: heightScreen - 220}}>
