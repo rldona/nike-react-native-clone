@@ -36,11 +36,10 @@ export const FavoritesContent = ({navigation}: any) => {
   if (favorites?.data.length === 0) {
     return (
       <EmptyResults
-        message={
-          'Los productos que añadas a tu lista de desesos se guardarán aquí'
-        }
-        buttonTitle={'Comprar ahora'}
-        icon={'heart'}
+        title="Favoritos"
+        message="Los productos que añadas a tu lista de desesos se guardarán aquí"
+        buttonTitle="Comprar ahora"
+        icon="heart"
       />
     );
   }
