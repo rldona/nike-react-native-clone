@@ -4,6 +4,9 @@ import {useNavigation} from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {Context} from '../../context/options';
+import {useQuery} from 'react-query';
+
+import {getClothing} from '../../services/productsService';
 
 import {H1} from '../../components/H1';
 import {Button} from '../../components/Button';
@@ -20,6 +23,11 @@ export const ProductsScreen = ({route}: Props) => {
     dispatch,
   }: any = useContext(Context);
 
+  const {isLoading: isLoadingClothing, data: clothing} = useQuery(
+    'clothing',
+    getClothing,
+  );
+
   const navigation = useNavigation();
   const title: string = route.params.title;
 
@@ -35,10 +43,14 @@ export const ProductsScreen = ({route}: Props) => {
     navigator();
   }, [navigator]);
 
+  if (isLoadingClothing) {
+    return null;
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.selectorWrapp}>
-        <FilterSelector filter="clothing" />
+        <FilterSelector filter="clothing" filterList={clothing?.data} />
       </View>
       <ProductList />
       <Modal

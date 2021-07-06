@@ -16,6 +16,10 @@ const getGenres = () => {
   return http.get('/genres');
 };
 
+const getClothing = () => {
+  return http.get('/clothing');
+};
+
 const createProduct = (data: any) => {
   return http.post('/products', data);
 };
@@ -41,6 +45,7 @@ export {
   getProduct,
   getMenuItems,
   getGenres,
+  getClothing,
   createProduct,
   updateProduct,
   removeProduct,

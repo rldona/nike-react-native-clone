@@ -4,17 +4,25 @@ import {useNavigation} from '@react-navigation/native';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {QueryClient, useMutation} from 'react-query';
 
-import {IProducts} from '../../models';
-
 import {removeFavorite} from '../../services/favoritesService';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import {Context} from '../../context/options';
 
 interface Props {
-  product: IProducts;
+  id: number;
+  type: string;
+  subType: string;
+  subTypeName: string;
+  genre: string;
+  genreName: string;
+  title: string;
+  description: string;
+  price: number;
+  preview: string;
+  backdrop: string;
 }
 
-export const Product = ({product}: Props) => {
+export const Product = (product: Props) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const {
