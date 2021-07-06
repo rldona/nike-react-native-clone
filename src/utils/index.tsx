@@ -30,8 +30,6 @@ export const getCurrentDate = () => {
   const week = date.getDay();
   const month = date.getMonth();
 
-  console.log(month);
-
   return `${Weekday[week]}, ${day} de ${Month[month]}`;
 };
 
@@ -47,4 +45,8 @@ export const findElementArray = (arr: any, id: string) => {
   );
 
   return typeof favoriteAlreadyExists === 'undefined' ? false : true;
+};
+
+export const getGenreName = (genreId: number) => {
+  return genreId === 0 ? 'man' : genreId === 1 ? 'woman' : 'kids';
 };
