@@ -8,6 +8,10 @@
 yarn serve-database
 ```
 
+```terminal
+yarn serve-database-delay
+```
+
 ### Install dependencies
 
 ```terminal
