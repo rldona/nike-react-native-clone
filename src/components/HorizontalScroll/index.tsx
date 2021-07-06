@@ -1,11 +1,12 @@
 import React from 'react';
 import {FlatList, StyleSheet, Text, View} from 'react-native';
-import {usePopular} from '../../hooks/usePopular';
 
 import {Product} from '../Product';
+import {IProducts} from '../../models/index';
 
 interface Props {
   title: string;
+  products: IProducts[];
 }
 
 /*
@@ -17,10 +18,8 @@ interface Props {
 
 */
 
-export const HorizontalScroll = ({title}: Props) => {
-  const {popular} = usePopular();
-
-  if (popular.length === 0) {
+export const HorizontalScroll = ({title, products}: Props) => {
+  if (products.length === 0) {
     return null;
   }
 
@@ -29,8 +28,10 @@ export const HorizontalScroll = ({title}: Props) => {
       <Text style={styles.title}>{title}</Text>
 
       <FlatList
-        data={popular}
-        renderItem={({item}) => <Product {...item} />}
+        data={products}
+        renderItem={({item}) => (
+          <Product product={products[item.id]} {...item} />
+        )}
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.horizontalScroll}

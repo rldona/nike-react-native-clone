@@ -1,11 +1,11 @@
-import {useContext, useEffect, useState} from 'react';
+import {useContext, useState} from 'react';
 
 import {IFilter} from '../models';
 import {Context} from '../context/options';
 
-export function useFilters(filterName: string) {
+export function useFilters(filterName: string, filterList: any) {
   const {dispatch}: any = useContext(Context);
-  const [filters, setFilters] = useState<IFilter[]>([]);
+  const [filters, setFilters] = useState<IFilter[]>(filterList);
 
   const onFilterSelected = (id: number) => {
     let newFilters: IFilter[] = filters;
@@ -20,22 +20,7 @@ export function useFilters(filterName: string) {
     setFilters([...newFilters]);
   };
 
-  const getFilters = async (filterType: string) => {
-    const filterList = await (
-      await fetch(`http://localhost:3000/${filterType}`)
-    ).json();
-
-    filterList[0].isActive = true;
-
-    setFilters(filterList);
-  };
-
-  useEffect(() => {
-    getFilters(filterName);
-  }, [filterName]);
-
   return {
-    filters,
     onFilterSelected,
   };
 }

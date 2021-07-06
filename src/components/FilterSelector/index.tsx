@@ -5,15 +5,15 @@ import {IFilter} from '../../models';
 import {useFilters} from '../../hooks/useFilters';
 import {FilterSelectorItem} from './FilterSelectorItem';
 
-export const FilterSelector = ({filter}: any) => {
-  const {filters, onFilterSelected} = useFilters(filter);
+export const FilterSelector = ({filterType, filterList}: any) => {
+  const {onFilterSelected} = useFilters(filterType, filterList);
 
   return (
     <ScrollView
       style={styles.container}
       horizontal
       showsHorizontalScrollIndicator={false}>
-      {filters.map((item: IFilter) => (
+      {filterList.map((item: IFilter) => (
         <FilterSelectorItem
           {...item}
           key={item.id}
