@@ -8,6 +8,14 @@ const getProduct = (id: any) => {
   return http.get(`/products/${id}`);
 };
 
+const getMenuItems = () => {
+  return http.get('/menu');
+};
+
+const getGenres = () => {
+  return http.get('/genres');
+};
+
 const createProduct = (data: any) => {
   return http.post('/products', data);
 };
@@ -31,6 +39,8 @@ const findProductByTitle = (title: string) => {
 export {
   getProducts,
   getProduct,
+  getMenuItems,
+  getGenres,
   createProduct,
   updateProduct,
   removeProduct,

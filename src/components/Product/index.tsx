@@ -4,11 +4,17 @@ import {useNavigation} from '@react-navigation/native';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {QueryClient, useMutation} from 'react-query';
 
+import {IProducts} from '../../models';
+
 import {removeFavorite} from '../../services/favoritesService';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import {Context} from '../../context/options';
 
-export const Product = ({id, title, preview}: any) => {
+interface Props {
+  product: IProducts;
+}
+
+export const Product = ({product}: Props) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const {
@@ -53,7 +59,7 @@ export const Product = ({id, title, preview}: any) => {
   // };
 
   const deleleFavorite = () => {
-    removeMutation.mutate(id);
+    removeMutation.mutate(product.id);
   };
 
   const onPress = () => {
@@ -71,19 +77,22 @@ export const Product = ({id, title, preview}: any) => {
     <TouchableOpacity
       activeOpacity={1}
       onPress={() => {
-        navigation.navigate('ProductDetail', {id, title});
+        navigation.navigate('ProductDetail', {
+          id: product.id,
+          title: product.title,
+        });
       }}>
       <View style={styles.container}>
         <Image
           style={styles.backdrop}
           source={{
-            uri: preview,
+            uri: product.preview,
           }}
         />
         <View style={styles.info}>
-          <Text style={styles.title}>{title}</Text>
-          <Text style={styles.subType}>Partes de arriba</Text>
-          <Text style={styles.title}>159.99 €</Text>
+          <Text style={styles.title}>{product.title}</Text>
+          <Text style={styles.subType}>{product.subTypeName}</Text>
+          <Text style={styles.title}>{product.price} €</Text>
         </View>
       </View>
       {isFavoriteEdited ? (

@@ -1,30 +1,27 @@
 import React, {useContext} from 'react';
 import {ImageBackground, StyleSheet, View} from 'react-native';
 
+import {IMenuItem} from '../../models';
 import {Context} from '../../context/options';
 
-import {IMenuItem} from '../../models';
-import {useMenu} from '../../hooks/useMenu';
 import {ProductMenuItem} from './ProductMenuItem';
 
-export const ProductMenu = () => {
+export const ProductMenu = ({items}: any) => {
   const {store}: any = useContext(Context);
-  const {menu} = useMenu();
-
   const genreId = store.currentGenre;
 
-  if (menu.links.length === 0) {
+  if (items.links.length === 0) {
     return null;
   }
 
   return (
     <ImageBackground
       source={{
-        uri: menu.backgrounds[genreId],
+        uri: items.backgrounds[genreId],
       }}
-      style={styles.image}>
+      style={{...styles.image, height: items.links.length * 102}}>
       <View style={styles.container}>
-        {menu.links.map((item: IMenuItem) => (
+        {items.links.map((item: IMenuItem) => (
           <ProductMenuItem key={item.id} {...item} />
         ))}
       </View>
@@ -41,7 +38,6 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'center',
-    height: 515, // TODO: hacerlo dinámico: productMenuList.length * height
   },
   text: {
     color: 'white',

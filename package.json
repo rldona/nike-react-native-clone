@@ -6,7 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "serve-database": "npx json-server --watch ./db/db.json",
-    "serve-database-delay": "npx json-server --watch ./db/db.json --delay 500",
+    "serve-database-delay": "npx json-server --watch ./db/db.json --delay 1500",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
