@@ -1,19 +1,11 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import {StyleSheet, Text, View} from 'react-native';
+import {ProfileContent} from '../../components/ProfileContent';
 
 const ProfileStack = createStackNavigator();
 
 export const ProfileScreen = () => {
-  const ProfileContent = () => {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.text}>ProfileScreen</Text>
-      </View>
-    );
-  };
-
   return (
     <ProfileStack.Navigator
       screenOptions={{
@@ -25,7 +17,7 @@ export const ProfileScreen = () => {
         name="ShoppingCart"
         component={ProfileContent}
         options={{
-          title: 'Profile',
+          title: '',
           headerTitleStyle: {
             color: '#000',
             fontSize: 16,
@@ -37,17 +29,3 @@ export const ProfileScreen = () => {
     </ProfileStack.Navigator>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignContent: 'center',
-    alignSelf: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    textAlign: 'center',
-    fontSize: 30,
-  },
-});
