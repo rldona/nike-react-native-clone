@@ -1,7 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {FlatList, StyleSheet, View} from 'react-native';
+import {Context} from '../../context/options';
 
-import {useProducts} from '../../hooks/useProducts';
+import {useQuery} from 'react-query';
+
+import {getGenreName} from '../../utils';
+import {getProducts} from '../../services/productsService';
 
 import {Product} from '../Product';
 
@@ -25,16 +29,27 @@ ROPA: clothing
  */
 
 export const ProductList = () => {
-  const {products} = useProducts(0);
+  const {
+    store: {currentGenre},
+  }: any = useContext(Context);
 
-  if (products.length === 0) {
+  const {isLoading: isLoadingProducts, data: products} = useQuery(
+    'products',
+    getProducts,
+  );
+
+  if (isLoadingProducts) {
     return null;
   }
+
+  const productsByGenre = products?.data.filter(
+    (person: any) => person.genre === getGenreName(currentGenre),
+  );
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={products}
+        data={productsByGenre}
         renderItem={({item}: any) => <Product {...item} />}
         showsHorizontalScrollIndicator={false}
         numColumns={2}
