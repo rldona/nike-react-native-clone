@@ -9,7 +9,7 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 
 import {HomeScreen} from '../screens/Home';
-import {CatalogStackScreen} from '../screens/Catalog';
+import {CatalogScreen} from '../screens/Catalog';
 import {FavoritesScreen} from '../screens/Favorites';
 import {ShoppigCartScreen} from '../screens/ShoppingCart';
 import {ProfileScreen} from '../screens/Profile';
@@ -64,7 +64,7 @@ export const AppStack = () => {
           />
           <Tab.Screen
             name="Catalog"
-            component={CatalogStackScreen}
+            component={CatalogScreen}
             options={{
               title: '',
               tabBarIcon: () => (

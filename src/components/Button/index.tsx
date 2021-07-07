@@ -2,13 +2,15 @@ import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 
 interface Props {
+  onPress?: any;
   size?: string;
+  width?: string;
   textSize?: number;
-  color?: string;
-  border?: string;
+  textColor?: string;
+  borderColor?: string;
+  borderRadius?: number;
   backgroundColor?: string;
   children: JSX.Element;
-  onPress?: any;
 }
 
 enum ButtonSizes {
@@ -27,9 +29,11 @@ enum TextSizes {
 
 export const Button = ({
   size = 'large',
-  color = '#FFF',
-  border = '#000',
+  textColor = '#FFF',
+  borderColor = '#000',
+  borderRadius = 50,
   backgroundColor = '#000',
+  width = '100%',
   children,
   onPress,
 }: Props) => {
@@ -37,16 +41,17 @@ export const Button = ({
     return {
       ...styles.button,
       padding: ButtonSizes[size as keyof typeof ButtonSizes],
-      width: '100%',
+      borderColor,
+      borderRadius,
       backgroundColor,
-      borderColor: border,
+      width,
     };
   };
 
   const setTextButtonStyle = () => {
     return {
       ...styles.textButton,
-      color,
+      color: textColor,
       fontSize: TextSizes[size as keyof typeof TextSizes],
     };
   };
@@ -63,7 +68,6 @@ export const Button = ({
 
 const styles = StyleSheet.create({
   button: {
-    borderRadius: 50,
     borderWidth: 1,
   },
   textButton: {

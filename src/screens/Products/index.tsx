@@ -71,8 +71,8 @@ export const ProductsScreen = ({route}: Props) => {
               <Button
                 size="small"
                 backgroundColor="#FFF"
-                color="#000"
-                border="#000">
+                textColor="#000"
+                borderColor="#000">
                 <Text>Reestablecer(0)</Text>
               </Button>
             </View>

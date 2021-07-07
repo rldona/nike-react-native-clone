@@ -8,7 +8,7 @@ interface Props {
   backgroundColor?: string;
 }
 
-export const Divider = ({
+export const Split = ({
   padding,
   borderColor = '#FFF',
   borderWidth = 0,

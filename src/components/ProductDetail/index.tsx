@@ -4,7 +4,7 @@ import Snackbar from 'react-native-snackbar';
 
 import {QueryClient, useQuery, useMutation} from 'react-query';
 
-import {Divider} from '../Divider';
+import {Split} from '../Split';
 import {Button} from '../Button';
 import {Loading} from '../Loading';
 
@@ -109,13 +109,13 @@ export const ProductDetail = ({
         <Button size="medium">
           <Text>Añadir a la cesta</Text>
         </Button>
-        <Divider padding={7} />
+        <Split padding={7} />
         {isFavorite ? (
           <Button
             size="medium"
             backgroundColor="#FFF"
-            color="#000"
-            border="#000"
+            textColor="#000"
+            borderColor="#000"
             onPress={deleteFavorite}>
             <Text>En favoritos</Text>
           </Button>
@@ -123,8 +123,8 @@ export const ProductDetail = ({
           <Button
             size="medium"
             backgroundColor="#FFF"
-            color="#000"
-            border="#000"
+            textColor="#000"
+            borderColor="#000"
             onPress={addFavorite}>
             <Text>Añadir a tus favoritos</Text>
           </Button>
