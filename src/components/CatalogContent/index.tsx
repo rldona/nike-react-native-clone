@@ -15,7 +15,7 @@ import {getGenreName} from '../../utils';
 import {H1} from '../../components/H1';
 import {ProductMenu} from '../../components/ProductMenu';
 import {HorizontalScroll} from '../../components/HorizontalScroll';
-import {Divider} from '../../components/Divider';
+import {Split} from '../Split';
 import {Loading} from '../Loading';
 import {FilterSelector} from '../FilterSelector';
 
@@ -53,7 +53,7 @@ export const CatalogContent = () => {
       <View style={styles.container}>
         <FilterSelector filterType="genres" filterList={genres?.data} />
 
-        <Divider padding={10} />
+        <Split padding={10} />
 
         <HorizontalScroll
           title="Imprescindibles, superventas y más"
@@ -62,14 +62,14 @@ export const CatalogContent = () => {
 
         <ProductMenu items={links?.data} />
 
-        <Divider padding={10} />
+        <Split padding={10} />
 
         <HorizontalScroll
           title="Ultimos y próximos lanzamientos"
           products={productsByGenre}
         />
 
-        <Divider padding={10} />
+        <Split padding={10} />
 
         <HorizontalScroll
           title="Colecciones de la selecciones"

@@ -2,7 +2,7 @@ import React from 'react';
 import {Image, StyleSheet, Text, View, ScrollView} from 'react-native';
 
 import {Button} from '../Button';
-import {Divider} from '../Divider';
+import {Split} from '../Split';
 import {ProfileMenu} from '../ProfileMenu';
 
 export const ProfileContent = () => {
@@ -15,12 +15,12 @@ export const ProfileContent = () => {
         }}
       />
 
-      <Divider padding={10} />
+      <Split padding={10} />
 
       <Text style={styles.name}>Raúl López Doña</Text>
       <Text style={styles.city}>San Sebastián de los Reyes</Text>
 
-      <Divider padding={20} />
+      <Split padding={20} />
 
       <View style={styles.editProfileButtonContainer}>
         <Button
@@ -34,20 +34,20 @@ export const ProfileContent = () => {
         </Button>
       </View>
 
-      <Divider padding={20} />
+      <Split padding={20} />
 
       <ProfileMenu />
 
-      <Divider padding={10} />
+      <Split padding={10} />
 
-      <Divider
+      <Split
         padding={4}
         backgroundColor="#F6F6F6"
         borderColor="#DDD"
         borderWidth={1}
       />
 
-      <Divider padding={10} />
+      <Split padding={10} />
 
       <View style={styles.memberSince}>
         <Text style={styles.memberSinceText}>Miembro desde junio 2013</Text>
