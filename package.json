@@ -8,7 +8,10 @@
     "serve-database": "npx json-server --watch ./db/db.json",
     "serve-database-delay": "npx json-server --watch ./db/db.json --delay 1500",
     "start": "react-native start",
-    "test": "jest",
+    "test": "jest --verbose",
+    "test:watch": "jest --verbose --watch",
+    "test:coverage": "jest --collectCoverage",
+    "test:snaptshot": "jest --update-snapshot --detectOpenHandles",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
@@ -31,6 +34,8 @@
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
     "@react-native-community/eslint-config": "^2.0.0",
+    "@testing-library/jest-native": "^4.0.1",
+    "@testing-library/react-native": "^7.2.0",
     "@types/jest": "^26.0.23",
     "@types/react-native": "^0.64.5",
     "@types/react-native-vector-icons": "^6.4.7",
@@ -47,6 +52,15 @@
   },
   "jest": {
     "preset": "react-native",
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-native/extend-expect"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|@?react-native|@?react-navigation|react-native-snackbar)"
+    ],
+    "setupFiles": [
+      "./node_modules/react-native-gesture-handler/jestSetup.js"
+    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",
