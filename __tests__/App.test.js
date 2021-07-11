@@ -1,1 +1,3 @@
-it('App renders correctly', () => {});
+it('App renders correctly', () => {
+  expect(true).toBe(true);
+});

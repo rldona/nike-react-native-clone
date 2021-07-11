@@ -10,12 +10,12 @@ interface Props {
 
 export const Card = ({title, topic, src}: Props) => {
   return (
-    <ImageBackground
-      source={{
-        uri: src,
-      }}
-      style={styles.container}>
-      <View>
+    <View testID="card-component">
+      <ImageBackground
+        source={{
+          uri: src,
+        }}
+        style={styles.container}>
         <Text style={styles.h2}>{topic}</Text>
         <Text style={styles.h1}>{title}</Text>
         <View style={styles.buttonContainer}>
@@ -27,8 +27,8 @@ export const Card = ({title, topic, src}: Props) => {
             <Text>Más información</Text>
           </Button>
         </View>
-      </View>
-    </ImageBackground>
+      </ImageBackground>
+    </View>
   );
 };
 
