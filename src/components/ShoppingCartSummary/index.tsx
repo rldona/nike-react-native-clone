@@ -10,7 +10,7 @@ export const ShoppingCartSummary = () => {
       </View>
       <View style={styles.row}>
         <Text style={styles.subTotalText}>Envío</Text>
-        <Text style={styles.subTotalText}>Estandar - Gratis</Text>
+        <Text style={styles.subTotalText}>Estándar - Gratis</Text>
       </View>
       <View style={styles.row}>
         <Text style={styles.totalText}>Total</Text>
