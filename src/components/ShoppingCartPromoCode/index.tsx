@@ -4,7 +4,7 @@ import {StyleSheet, Text, View} from 'react-native';
 export const ShoppingCartPromoCode = () => {
   return (
     <View>
-      <Text style={styles.text}>ShoppingCartPromoCode</Text>
+      <Text style={styles.text}>¿Tienes un código promocional?</Text>
     </View>
   );
 };
