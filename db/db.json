@@ -273,7 +273,21 @@
       "backdrop": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/d3e71ba7-9acd-43b3-aabb-2f49d42c2ebc/pro-adv-sudadera-con-capucha-de-tejido-fleece-X9cV1q.png"
     }
   ],
-  "favorites": [],
+  "favorites": [
+    {
+      "id": 1,
+      "type": "clothing",
+      "subType": "top-parts",
+      "subTypeName": "Partes de arriba",
+      "genre": "man",
+      "genreName": "Hombre",
+      "title": "NikeCourt Dri-FIT ADV Rafa",
+      "description": "La camiseta NikeCourt Dri-FIT ADV Rafa combina nuestros materiales más innovadores con la información de Rafael Nadal para crear una pieza diseñada para rendir a los niveles más altos de juego. Su diseño avanzado está confeccionado para mantener la frescura, la transpirabilidad y la comodidad durante los partidos más duros.",
+      "price": 74.99,
+      "preview": "https://static.nike.com/a/images/c_limit,w_318,f_auto/t_product_v1/8ee6a54d-1075-43f8-9090-b7a794d0bd78/nikecourt-dri-fit-adv-rafa-camiseta-de-tenis-de-manga-corta-l0Nq9q.png",
+      "backdrop": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/2b738b56-f205-450c-9ce7-2ce4306cdfbb/nikecourt-dri-fit-adv-rafa-camiseta-de-tenis-de-manga-corta-l0Nq9q.png"
+    }
+  ],
   "shopping-cart": [
     {
       "id": 17,
