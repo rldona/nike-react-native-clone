@@ -274,7 +274,21 @@
     }
   ],
   "favorites": [],
-  "shopping-cart": [],
+  "shopping-cart": [
+    {
+      "id": 17,
+      "type": "clothing",
+      "subType": "hoodies-and-sweatshirts",
+      "subTypeName": "Sudadera",
+      "genre": "kids",
+      "genreName": "Niño/a",
+      "title": "Nike Air",
+      "description": "La camiseta Nike Sportswear no es una prenda cualquiera: está confeccionada con al menos un 75 % de materiales sostenibles gracias a una combinación de poliéster reciclado, algodón reciclado y fibras de algodón orgánico. La combinación contiene al menos un 10 % de fibras recicladas o un 10 % de fibras de algodón orgánico. El ajuste holgado permite llevarla de varias maneras distintas.",
+      "price": 49.99,
+      "preview": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e06f322b-1d0a-4ca0-9c4a-abb810998b22/air-sudadera-nino-6gT848.png",
+      "backdrop": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,b_rgb:f5f5f5/690938c7-3bc4-463d-9670-ded70c81b750/air-sudadera-nino-6gT848.png"
+    }
+  ],
   "menu": {
     "links": [
       {
