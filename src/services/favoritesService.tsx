@@ -1,22 +1,23 @@
 import http from '../api';
+import {IProducts} from '../models';
 
 const getFavorites = () => {
   return http.get('/favorites');
 };
 
-const getFavorite = (id: any) => {
+const getFavorite = (id: number) => {
   return http.get(`/favorites/${id}`);
 };
 
-const createFavorite = (data: any) => {
-  return http.post('/favorites', data);
+const createFavorite = (favorite: IProducts) => {
+  return http.post('/favorites', favorite);
 };
 
-const updateFavorite = (id: number, data: any) => {
+const updateFavorite = (id: number, data: IProducts) => {
   return http.put(`/favorites/${id}`, data);
 };
 
-const removeFavorite = (id: any) => {
+const removeFavorite = (id: string) => {
   return http.delete(`/favorites/${id}`);
 };
 

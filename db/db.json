@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "id": 0,
+      "id": "0",
       "type": "clothing",
       "subType": "top-parts",
       "subTypeName": "Partes de arriba",
@@ -14,7 +14,7 @@
       "backdrop": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/2b738b56-f205-450c-9ce7-2ce4306cdfbb/nikecourt-dri-fit-adv-rafa-camiseta-de-tenis-de-manga-corta-l0Nq9q.png"
     },
     {
-      "id": 1,
+      "id": "1",
       "type": "clothing",
       "subType": "top-parts",
       "subTypeName": "Partes de arriba",
@@ -27,7 +27,7 @@
       "backdrop": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/c7b79873-7ddd-4e4b-8843-c026621b90c6/fff-2020-stadium-home-camiseta-de-futbol-z6KlV4.png"
     },
     {
-      "id": 2,
+      "id": "2",
       "type": "clothing",
       "subType": "top-parts",
       "subTypeName": "Partes de arriba",
@@ -40,7 +40,7 @@
       "backdrop": "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,b_rgb:f5f5f5/877fbb34-2c55-4f8f-a45f-69efb4cbfdec/primera-equipacion-vapor-match-portugal-2020-camiseta-de-futbol-n1k2sp.png"
     },
     {
-      "id": 3,
+      "id": "3",
       "type": "clothing",
       "subType": "hoodies-and-sweatshirts",
       "subTypeName": "Sudaderas con y sin capucha",
@@ -53,7 +53,7 @@
       "backdrop": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/62c3f592-b3e8-4579-a238-f5bfa8f475a8/sportswear-tech-fleece-sudadera-con-capucha-con-cremallera-completa-jMmfqR.png"
     },
     {
-      "id": 4,
+      "id": "4",
       "type": "clothing",
       "subType": "hoodies-and-sweatshirts",
       "subTypeName": "Sudaderas con y sin capucha",
@@ -66,7 +66,7 @@
       "backdrop": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/a8ea7cf8-ecbb-4aed-8908-c608d259f74e/sportswear-sudadera-con-capucha-de-tejido-fleece-Qg72ll.png"
     },
     {
-      "id": 5,
+      "id": "5",
       "type": "clothing",
       "subType": "hoodies-and-sweatshirts",
       "subTypeName": "Sudaderas con y sin capucha",
@@ -79,7 +79,7 @@
       "backdrop": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/d3e71ba7-9acd-43b3-aabb-2f49d42c2ebc/pro-adv-sudadera-con-capucha-de-tejido-fleece-X9cV1q.png"
     },
     {
-      "id": 6,
+      "id": "6",
       "type": "clothing",
       "subType": "hoodies-and-sweatshirts",
       "subTypeName": "Camiseta de tirantes de danza",
@@ -92,7 +92,7 @@
       "backdrop": "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/b25ac788-9619-458b-af28-678b7c4d9f84/sportswear-camiseta-de-tirantes-de-danza-ClzDZc.png"
     },
     {
-      "id": 7,
+      "id": "7",
       "type": "clothing",
       "subType": "hoodies-and-sweatshirts",
       "subTypeName": "Camiseta de tirantes de danza",
@@ -105,7 +105,7 @@
       "backdrop": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,b_rgb:f5f5f5/b7db248b-d3f2-4cb4-b324-ff581b6cf280/sportswear-camiseta-corta-danza-kHHpVg.png"
     },
     {
-      "id": 8,
+      "id": "8",
       "type": "clothing",
       "subType": "hoodies-and-sweatshirts",
       "subTypeName": "Sudadera con capucha de tejido Fleece",
@@ -118,7 +118,7 @@
       "backdrop": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,b_rgb:f5f5f5/e224cc12-9468-4cc0-9e48-ab0bcfb9acbb/sportswear-sudadera-con-capucha-de-tejido-fleece-pqMXxl.png"
     },
     {
-      "id": 9,
+      "id": "9",
       "type": "clothing",
       "subType": "hoodies-and-sweatshirts",
       "subTypeName": "Fleece con cremallera de 1/4 (Talla grande)",
@@ -131,7 +131,7 @@
       "backdrop": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,b_rgb:f5f5f5/f8e5dfa6-10cc-41a8-a8f9-89f4e0595271/sportswear-parte-de-arriba-de-tejido-fleece-con-cremallera-de-1-4-s3cfsh.png"
     },
     {
-      "id": 10,
+      "id": "10",
       "type": "clothing",
       "subType": "hoodies-and-sweatshirts",
       "subTypeName": "Sudadera con capucha y cremallera completa ",
@@ -144,7 +144,7 @@
       "backdrop": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,b_rgb:f5f5f5/a2340a03-679e-4084-9c37-928cf9cf3691/sportswear-tech-fleece-windrunner-sudadera-con-capucha-con-cremallera-completa-3jcHXn.png"
     },
     {
-      "id": 11,
+      "id": "11",
       "type": "clothing",
       "subType": "hoodies-and-sweatshirts",
       "subTypeName": "Camiseta de fútbol",
@@ -157,7 +157,7 @@
       "backdrop": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,b_rgb:f5f5f5/7f8fffb0-27b4-4b33-b28a-59ae965c9ae3/primera-equipacion-stadium-paises-bajos-2020-camiseta-de-futbol-d04QdJ.png"
     },
     {
-      "id": 12,
+      "id": "12",
       "type": "clothing",
       "subType": "hoodies-and-sweatshirts",
       "subTypeName": "Camiseta",
@@ -170,7 +170,7 @@
       "backdrop": "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/d739d39b-50c6-4bd6-acd8-865df5d76b68/sportswear-camiseta-nino-a-3G59lZ.png"
     },
     {
-      "id": 13,
+      "id": "13",
       "type": "clothing",
       "subType": "hoodies-and-sweatshirts",
       "subTypeName": "Camiseta",
@@ -183,7 +183,7 @@
       "backdrop": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,b_rgb:f5f5f5/b4cbe790-98d4-48ba-9e89-a3018f425363/sportswear-camiseta-nino-a-G5b2MH.png"
     },
     {
-      "id": 14,
+      "id": "14",
       "type": "clothing",
       "subType": "hoodies-and-sweatshirts",
       "subTypeName": "Camiseta",
@@ -196,7 +196,7 @@
       "backdrop": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,b_rgb:f5f5f5/c88f165e-732a-495f-8b54-8fa96812cc2e/sportswear-camiseta-nino-Lvv2wk.png"
     },
     {
-      "id": 15,
+      "id": "15",
       "type": "clothing",
       "subType": "hoodies-and-sweatshirts",
       "subTypeName": "Camiseta",
@@ -209,7 +209,7 @@
       "backdrop": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,b_rgb:f5f5f5/b598670a-0766-43a2-900e-b9a7cbde70a9/sportswear-camiseta-nino-Jx8wsK.png"
     },
     {
-      "id": 16,
+      "id": "16",
       "type": "clothing",
       "subType": "hoodies-and-sweatshirts",
       "subTypeName": "Camiseta",
@@ -222,7 +222,7 @@
       "backdrop": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,b_rgb:f5f5f5/2ada0dd3-5edb-4378-82ea-dac773e3e913/sportswear-camiseta-nino-FQ3gVc.png"
     },
     {
-      "id": 17,
+      "id": "17",
       "type": "clothing",
       "subType": "hoodies-and-sweatshirts",
       "subTypeName": "Sudadera",
@@ -273,21 +273,7 @@
       "backdrop": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/d3e71ba7-9acd-43b3-aabb-2f49d42c2ebc/pro-adv-sudadera-con-capucha-de-tejido-fleece-X9cV1q.png"
     }
   ],
-  "favorites": [
-    {
-      "id": 1,
-      "type": "clothing",
-      "subType": "top-parts",
-      "subTypeName": "Partes de arriba",
-      "genre": "man",
-      "genreName": "Hombre",
-      "title": "NikeCourt Dri-FIT ADV Rafa",
-      "description": "La camiseta NikeCourt Dri-FIT ADV Rafa combina nuestros materiales más innovadores con la información de Rafael Nadal para crear una pieza diseñada para rendir a los niveles más altos de juego. Su diseño avanzado está confeccionado para mantener la frescura, la transpirabilidad y la comodidad durante los partidos más duros.",
-      "price": 74.99,
-      "preview": "https://static.nike.com/a/images/c_limit,w_318,f_auto/t_product_v1/8ee6a54d-1075-43f8-9090-b7a794d0bd78/nikecourt-dri-fit-adv-rafa-camiseta-de-tenis-de-manga-corta-l0Nq9q.png",
-      "backdrop": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/2b738b56-f205-450c-9ce7-2ce4306cdfbb/nikecourt-dri-fit-adv-rafa-camiseta-de-tenis-de-manga-corta-l0Nq9q.png"
-    }
-  ],
+  "favorites": [],
   "shopping-cart": [
     {
       "id": 17,

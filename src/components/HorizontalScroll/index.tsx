@@ -11,7 +11,7 @@ interface Props {
 
 /*
 
-<Product {...item} /> tiene que tner un tipo para diferenciar si es un item que redirige a <ProductDetail /> o <Categories />:
+<Product {...item} /> tiene que tener un tipo para diferenciar si es un item que redirige a <ProductDetail /> o <Categories />:
 
 1. <Product {...item} type="detail" />
 2. <Product {...item} type="categories" />

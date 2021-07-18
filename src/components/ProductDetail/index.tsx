@@ -26,6 +26,7 @@ export const ProductDetail = ({
   navigation,
 }: any) => {
   const [isFavorite, setIsFavorite] = useState(false);
+
   const {data: favorites} = useQuery('favorites', getFavorites);
   const {isLoading, data: product} = useQuery(['product', id], () =>
     getProduct(id),
@@ -50,29 +51,21 @@ export const ProductDetail = ({
   });
 
   const addFavorite = () => {
-    if (!isLoading && !findElementArray(favorites, id)) {
-      createMutation.mutate(product?.data);
+    console.log(product?.data);
 
-      setIsFavorite(true);
+    createMutation.mutate(product?.data);
 
-      Snackbar.show({
-        text: 'Añadido a favoritos',
-        duration: 3000,
-        textColor: '#FFF',
-        backgroundColor: '#00b64a',
-      });
-    } else {
-      Snackbar.show({
-        text: 'El favorito ya está guardado',
-        duration: 3000,
-        textColor: '#FFF',
-        backgroundColor: '#000',
-      });
-    }
+    setIsFavorite(true);
+
+    Snackbar.show({
+      text: 'Añadido a favoritos',
+      duration: 3000,
+      textColor: '#FFF',
+      backgroundColor: '#00b64a',
+    });
   };
 
   const deleteFavorite = () => {
-    console.log('removed favorite');
     removeMutation.mutate(id);
     setIsFavorite(false);
   };

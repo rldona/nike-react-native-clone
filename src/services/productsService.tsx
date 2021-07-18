@@ -1,10 +1,11 @@
 import http from '../api';
+import {IProducts} from '../models/index';
 
 const getProducts = () => {
   return http.get('/products');
 };
 
-const getProduct = (id: any) => {
+const getProduct = (id: string) => {
   return http.get(`/products/${id}`);
 };
 
@@ -20,15 +21,15 @@ const getClothing = () => {
   return http.get('/clothing');
 };
 
-const createProduct = (data: any) => {
+const createProduct = (data: IProducts) => {
   return http.post('/products', data);
 };
 
-const updateProduct = (id: number, data: any) => {
+const updateProduct = (id: string, data: IProducts) => {
   return http.put(`/products/${id}`, data);
 };
 
-const removeProduct = (id: any) => {
+const removeProduct = (id: string) => {
   return http.delete(`/products/${id}`);
 };
 

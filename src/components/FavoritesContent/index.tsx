@@ -9,16 +9,9 @@ import {H1} from '../H1';
 import {Product} from '../Product';
 import {EmptyResults} from '../EmptyResults';
 import {Loading} from '../Loading';
-import {getProducts} from '../../services/productsService';
 
 export const FavoritesContent = ({navigation}: any) => {
-  const {isLoading: isLoadingProducts, data: products} = useQuery(
-    'products',
-    getProducts,
-  );
-
   const {
-    isFetching,
     isLoading,
     refetch,
     data: favorites,
@@ -35,7 +28,7 @@ export const FavoritesContent = ({navigation}: any) => {
     });
   }, [navigation, refetch]);
 
-  if (isLoadingProducts || isFetching || isLoading) {
+  if (isLoading) {
     return <Loading />;
   }
 
@@ -55,7 +48,7 @@ export const FavoritesContent = ({navigation}: any) => {
       <FlatList
         data={favorites?.data}
         renderItem={({item}) => (
-          <Product product={products?.data[item.id]} {...item} />
+          <Product product={favorites?.data[item.id]} {...item} />
         )}
         numColumns={2}
         showsVerticalScrollIndicator={false}

@@ -4,12 +4,12 @@ import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import {useShoppingCart} from '../../hooks/useShoppingCart';
 
 import {H1} from '../H1';
+import {Split} from '../Split';
 import {Button} from '../Button';
 import {EmptyResults} from '../EmptyResults';
 import {ShoppingCartPromoCode} from '../ShoppingCartPromoCode';
 import {ShoppingCartItem} from '../ShoppingCartItem/index';
 import {ShoppingCartSummary} from '../ShoppingCartSummary';
-import {Divider} from '../Divider';
 
 export const ShoppingCartContent = () => {
   const {shoppingCart, onPress} = useShoppingCart();
@@ -29,11 +29,18 @@ export const ShoppingCartContent = () => {
     <View style={styles.container}>
       <ScrollView>
         <H1>Cesta</H1>
-        <ShoppingCartItem />
-        <Divider padding={10} />
-        <ShoppingCartPromoCode />
-        <Divider padding={10} />
-        <ShoppingCartSummary />
+
+        <View style={styles.content}>
+          <ShoppingCartItem />
+
+          <Split padding={10} />
+
+          <ShoppingCartPromoCode />
+
+          <Split padding={10} />
+
+          <ShoppingCartSummary />
+        </View>
       </ScrollView>
 
       <View style={styles.buttonContainer}>
@@ -48,6 +55,8 @@ export const ShoppingCartContent = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  content: {
     marginLeft: 20,
     marginRight: 20,
   },
