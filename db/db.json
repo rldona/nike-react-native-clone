@@ -273,7 +273,34 @@
       "backdrop": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/d3e71ba7-9acd-43b3-aabb-2f49d42c2ebc/pro-adv-sudadera-con-capucha-de-tejido-fleece-X9cV1q.png"
     }
   ],
-  "favorites": [],
+  "favorites": [
+    {
+      "id": "0",
+      "type": "clothing",
+      "subType": "top-parts",
+      "subTypeName": "Partes de arriba",
+      "genre": "man",
+      "genreName": "Hombre",
+      "title": "NikeCourt Dri-FIT ADV Rafa",
+      "description": "La camiseta NikeCourt Dri-FIT ADV Rafa combina nuestros materiales más innovadores con la información de Rafael Nadal para crear una pieza diseñada para rendir a los niveles más altos de juego. Su diseño avanzado está confeccionado para mantener la frescura, la transpirabilidad y la comodidad durante los partidos más duros.",
+      "price": 74.99,
+      "preview": "https://static.nike.com/a/images/c_limit,w_318,f_auto/t_product_v1/8ee6a54d-1075-43f8-9090-b7a794d0bd78/nikecourt-dri-fit-adv-rafa-camiseta-de-tenis-de-manga-corta-l0Nq9q.png",
+      "backdrop": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/2b738b56-f205-450c-9ce7-2ce4306cdfbb/nikecourt-dri-fit-adv-rafa-camiseta-de-tenis-de-manga-corta-l0Nq9q.png"
+    },
+    {
+      "id": "1",
+      "type": "clothing",
+      "subType": "top-parts",
+      "subTypeName": "Partes de arriba",
+      "genre": "man",
+      "genreName": "Hombre",
+      "title": "FFF 2020 Stadium Home",
+      "description": "Ayúdale a animar a su selección con la camiseta de la 1ª equipación FFF Stadium Home. El tejido altamente transpirable capilariza el sudor de la piel para mantener la frescura y la comodidad en el campo o en las gradas.",
+      "price": 89.99,
+      "preview": "https://static.nike.com/a/images/c_limit,w_318,f_auto/t_product_v1/9f38580f-ef5d-436c-977a-b0547cd1828c/fff-2020-stadium-home-camiseta-de-futbol-z6KlV4.png",
+      "backdrop": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/c7b79873-7ddd-4e4b-8843-c026621b90c6/fff-2020-stadium-home-camiseta-de-futbol-z6KlV4.png"
+    }
+  ],
   "shopping-cart": [
     {
       "id": 17,
