@@ -5,6 +5,10 @@ const getProducts = () => {
   return http.get('/products');
 };
 
+const getShoppingCart = () => {
+  return http.get('/shopping-cart');
+};
+
 const getProduct = (id: string) => {
   return http.get(`/products/${id}`);
 };
@@ -43,6 +47,7 @@ const findProductByTitle = (title: string) => {
 
 export {
   getProducts,
+  getShoppingCart,
   getProduct,
   getMenuItems,
   getGenres,

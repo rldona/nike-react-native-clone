@@ -299,6 +299,32 @@
       "price": 89.99,
       "preview": "https://static.nike.com/a/images/c_limit,w_318,f_auto/t_product_v1/9f38580f-ef5d-436c-977a-b0547cd1828c/fff-2020-stadium-home-camiseta-de-futbol-z6KlV4.png",
       "backdrop": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/c7b79873-7ddd-4e4b-8843-c026621b90c6/fff-2020-stadium-home-camiseta-de-futbol-z6KlV4.png"
+    },
+    {
+      "id": "3",
+      "type": "clothing",
+      "subType": "hoodies-and-sweatshirts",
+      "subTypeName": "Sudaderas con y sin capucha",
+      "genre": "man",
+      "genreName": "Hombre",
+      "title": "Nike Sportswear Tech Fleece",
+      "description": "La sudadera con capucha y cremallera completa Nike Sportswear Tech Fleece está confeccionada con tejido separador de doble cara para ofrecer calidez adicional sin añadir peso. La capucha con un ajuste ligeramente más alto en el cuello te protege de la humedad cuando llueve y hace frío.",
+      "price": 109.99,
+      "preview": "https://static.nike.com/a/images/c_limit,w_318,f_auto/t_product_v1/2a610bb6-4907-4f51-ace6-6b1d493b941f/sportswear-tech-fleece-sudadera-con-capucha-con-cremallera-completa-jMmfqR.png",
+      "backdrop": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/62c3f592-b3e8-4579-a238-f5bfa8f475a8/sportswear-tech-fleece-sudadera-con-capucha-con-cremallera-completa-jMmfqR.png"
+    },
+    {
+      "id": "10",
+      "type": "clothing",
+      "subType": "hoodies-and-sweatshirts",
+      "subTypeName": "Sudadera con capucha y cremallera completa ",
+      "genre": "woman",
+      "genreName": "Mujer",
+      "title": "Nike Sportswear Tech Fleece Windrunner",
+      "description": "La sudadera con capucha Nike Sportswear Tech Fleece está confeccionada con un tejido separador de doble cara que aprovecha el calor corporal para retener la calidez sin añadir peso ni volumen.",
+      "price": 99.99,
+      "preview": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/f9d75efa-ec0b-4bb5-b7d5-6b19ae97d0ef/sportswear-tech-fleece-windrunner-sudadera-con-capucha-con-cremallera-completa-3jcHXn.png",
+      "backdrop": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,b_rgb:f5f5f5/a2340a03-679e-4084-9c37-928cf9cf3691/sportswear-tech-fleece-windrunner-sudadera-con-capucha-con-cremallera-completa-3jcHXn.png"
     }
   ],
   "shopping-cart": [

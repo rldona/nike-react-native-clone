@@ -4,12 +4,8 @@ import {useNavigation} from '@react-navigation/native';
 
 import {useCategories} from '../../hooks/useCategories';
 
-interface Props {
-  route: any;
-}
-
-export const Categories = ({route}: Props) => {
-  const {categories} = useCategories({route});
+export const Categories = () => {
+  const {categories} = useCategories();
   const navigation = useNavigation();
 
   if (categories.length === 0) {

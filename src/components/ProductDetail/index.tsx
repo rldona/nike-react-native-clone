@@ -51,8 +51,6 @@ export const ProductDetail = ({
   });
 
   const addFavorite = () => {
-    console.log(product?.data);
-
     createMutation.mutate(product?.data);
 
     setIsFavorite(true);

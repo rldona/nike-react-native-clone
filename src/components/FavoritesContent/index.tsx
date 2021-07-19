@@ -25,6 +25,7 @@ export const FavoritesContent = ({navigation}: any) => {
   useEffect(() => {
     return navigation.addListener('focus', () => {
       refetch();
+      console.log('--- Refresh favorites ---');
     });
   }, [navigation, refetch]);
 
