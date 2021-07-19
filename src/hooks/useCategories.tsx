@@ -6,12 +6,9 @@ interface Props {
   route: any;
 }
 
-export function useCategories({route}: Props) {
+export function useCategories() {
   const [categories, setcategories] = useState<ICategories[]>([]);
   const navigation = useNavigation();
-
-  const id: number = route.params.id;
-  console.log(id);
 
   const getCategories = useCallback(async () => {
     const categorieList = await (

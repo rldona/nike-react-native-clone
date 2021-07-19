@@ -3,18 +3,38 @@ import {StyleSheet, Text, View} from 'react-native';
 
 export const ShoppingCartSummary = () => {
   return (
-    <View>
-      <Text style={styles.text}>ShoppingCartSummary</Text>
-    </View>
+    <>
+      <View style={styles.row}>
+        <Text style={styles.subTotalText}>Subtotal</Text>
+        <Text style={styles.subTotalText}>89,99 €</Text>
+      </View>
+      <View style={styles.row}>
+        <Text style={styles.subTotalText}>Envío</Text>
+        <Text style={styles.subTotalText}>Estándar - Gratis</Text>
+      </View>
+      <View style={styles.row}>
+        <Text style={styles.totalText}>Total</Text>
+        <Text style={styles.totalText}>89,99 €</Text>
+      </View>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
-  text: {
-    color: '#000',
-    fontSize: 30,
+  subTotalText: {
+    color: '#999',
+    fontSize: 15,
     fontWeight: '400',
-    paddingLeft: 20,
-    paddingBottom: 15,
+    lineHeight: 22,
+  },
+  totalText: {
+    color: '#000',
+    fontSize: 15,
+    fontWeight: '400',
+    lineHeight: 22,
+  },
+  row: {
+    justifyContent: 'space-between',
+    flexDirection: 'row',
   },
 });

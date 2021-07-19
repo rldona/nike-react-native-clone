@@ -38,13 +38,11 @@ export const wait = (timeout: number) => {
 };
 
 export const findElementArray = (arr: any, id: string) => {
-  let favoritesData: any = arr.data;
+  let favoritesData = arr.data;
   let favoriteAlreadyExists;
 
   if (favoritesData) {
-    favoriteAlreadyExists = favoritesData.find(
-      (i: any) => i.id === parseInt(id, 10),
-    );
+    favoriteAlreadyExists = favoritesData.find((i: any) => i.id === id);
   }
 
   return typeof favoriteAlreadyExists === 'undefined' ? false : true;

@@ -1,16 +1,37 @@
-import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import React, {useEffect} from 'react';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {useQuery} from 'react-query';
 
-import {useShoppingCart} from '../../hooks/useShoppingCart';
+import {getShoppingCart} from '../../services/productsService';
 
 import {H1} from '../H1';
+import {Split} from '../Split';
 import {Button} from '../Button';
+import {Loading} from '../Loading';
 import {EmptyResults} from '../EmptyResults';
+import {ShoppingCartPromoCode} from '../ShoppingCartPromoCode';
+import {ShoppingCartItem} from '../ShoppingCartItem/index';
+import {ShoppingCartSummary} from '../ShoppingCartSummary';
 
-export const ShoppingCartContent = () => {
-  const {shoppingCart, onPress} = useShoppingCart();
+export const ShoppingCartContent = ({navigation}: any) => {
+  const {
+    isLoading,
+    refetch,
+    data: shoppingCart,
+  } = useQuery('shopping-cart', getShoppingCart);
 
-  if (shoppingCart.length === 0) {
+  useEffect(() => {
+    return navigation.addListener('focus', () => {
+      refetch();
+      console.log('--- Refresh shopping cart ---');
+    });
+  }, [navigation, refetch]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if (shoppingCart?.data.length === 0) {
     return (
       <EmptyResults
         title="Cesta"
@@ -21,9 +42,28 @@ export const ShoppingCartContent = () => {
     );
   }
 
+  const onPress = () => {
+    console.log('--- press button shopping cart ---');
+  };
+
   return (
     <View style={styles.container}>
-      <H1>Cesta</H1>
+      <ScrollView>
+        <H1>Cesta</H1>
+
+        <View style={styles.content}>
+          <ShoppingCartItem />
+
+          <Split padding={10} />
+
+          <ShoppingCartPromoCode />
+
+          <Split padding={10} />
+
+          <ShoppingCartSummary />
+        </View>
+      </ScrollView>
+
       <View style={styles.buttonContainer}>
         <Button onPress={onPress}>
           <Text>Pasar por caja</Text>
@@ -36,6 +76,10 @@ export const ShoppingCartContent = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  content: {
+    marginLeft: 20,
+    marginRight: 20,
   },
   buttonContainer: {
     width: '100%',

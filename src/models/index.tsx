@@ -1,5 +1,5 @@
 export interface IProducts {
-  id: number;
+  id: string;
   type: string;
   subType: string;
   subTypeName: string;

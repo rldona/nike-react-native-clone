@@ -14,7 +14,5 @@ const styles = StyleSheet.create({
     color: '#000',
     fontSize: 30,
     fontWeight: '400',
-    paddingLeft: 20,
-    paddingBottom: 15,
   },
 });
