@@ -2,8 +2,6 @@ import React from 'react';
 
 export const initialState = {
   currentGenre: 0,
-  favorites: [],
-  showEditFavoritesButton: true,
   showProductFilterModal: false,
   isFavoriteEdited: false,
   isLoadingShow: false,

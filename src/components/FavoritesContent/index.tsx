@@ -18,14 +18,18 @@ export const FavoritesContent = ({navigation}: any) => {
   } = useQuery('favorites', getFavorites);
 
   const {
-    store: {isFavoriteEdited, showEditFavoritesButton},
+    store: {isFavoriteEdited},
     dispatch,
   }: any = useContext(Context);
 
   useEffect(() => {
     return navigation.addListener('focus', () => {
-      refetch();
-      console.log('--- Refresh favorites ---');
+      // TODO: Montrar Loading...
+      console.log('Montrar Loading...');
+      refetch().then(() => {
+        // TODO: Ocultar Loading...
+        console.log('Ocultar Loading...');
+      });
     });
   }, [navigation, refetch]);
 
@@ -62,11 +66,9 @@ export const FavoritesContent = ({navigation}: any) => {
               onPress={() =>
                 dispatch({type: 'TOGGLE_SHOW_BUTTON_TO_EDIT_FAVORITES'})
               }>
-              {showEditFavoritesButton ? (
-                <Text style={styles.text}>
-                  {isFavoriteEdited ? 'OK' : 'Editar'}
-                </Text>
-              ) : null}
+              <Text style={styles.text}>
+                {isFavoriteEdited ? 'OK' : 'Editar'}
+              </Text>
             </TouchableOpacity>
           </>
         )}

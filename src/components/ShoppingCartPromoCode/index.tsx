@@ -12,10 +12,7 @@ export const ShoppingCartPromoCode = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 15,
     paddingBottom: 15,
-    borderTopWidth: 1,
-    borderTopColor: '#DDD',
     borderBottomWidth: 1,
     borderBottomColor: '#DDD',
     flexDirection: 'row',

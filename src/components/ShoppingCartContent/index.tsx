@@ -12,6 +12,7 @@ import {EmptyResults} from '../EmptyResults';
 import {ShoppingCartPromoCode} from '../ShoppingCartPromoCode';
 import {ShoppingCartItem} from '../ShoppingCartItem/index';
 import {ShoppingCartSummary} from '../ShoppingCartSummary';
+import {IProducts} from '../../models';
 
 export const ShoppingCartContent = ({navigation}: any) => {
   const {
@@ -22,8 +23,12 @@ export const ShoppingCartContent = ({navigation}: any) => {
 
   useEffect(() => {
     return navigation.addListener('focus', () => {
-      refetch();
-      console.log('--- Refresh shopping cart ---');
+      // TODO: Montrar Loading...
+      console.log('Montrar Loading...');
+      refetch().then(() => {
+        // TODO: Ocultar Loading...
+        console.log('Ocultar Loading...');
+      });
     });
   }, [navigation, refetch]);
 
@@ -48,13 +53,13 @@ export const ShoppingCartContent = ({navigation}: any) => {
 
   return (
     <View style={styles.container}>
-      <ScrollView>
+      <ScrollView contentContainerStyle={styles.shoppingCartList}>
         <H1>Cesta</H1>
 
         <View style={styles.content}>
-          <ShoppingCartItem />
-
-          <Split padding={10} />
+          {shoppingCart?.data.map((product: IProducts) => (
+            <ShoppingCartItem key={product.id} product={product} />
+          ))}
 
           <ShoppingCartPromoCode />
 
@@ -81,6 +86,9 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
   },
+  shoppingCartList: {
+    paddingBottom: 120,
+  },
   buttonContainer: {
     width: '100%',
     position: 'absolute',
@@ -89,5 +97,6 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: '#DEDEDE',
     padding: 16,
+    backgroundColor: '#FFF',
   },
 });

@@ -8,8 +8,12 @@ import {Split} from '../Split';
 import {Button} from '../Button';
 import {Loading} from '../Loading';
 
-import {getProduct} from '../../services/productsService';
-import {findElementArray} from '../../utils/index';
+import {findElementArray} from '../../utils';
+
+import {
+  addProductToShoppingCart,
+  getProduct,
+} from '../../services/productsService';
 
 import {
   createFavorite,
@@ -28,11 +32,12 @@ export const ProductDetail = ({
   const [isFavorite, setIsFavorite] = useState(false);
 
   const {data: favorites} = useQuery('favorites', getFavorites);
+
   const {isLoading, data: product} = useQuery(['product', id], () =>
     getProduct(id),
   );
 
-  const createMutation = useMutation(createFavorite, {
+  const createFavoriteMutation = useMutation(createFavorite, {
     onSuccess: () => {
       queryClient.invalidateQueries('favorites');
     },
@@ -40,6 +45,18 @@ export const ProductDetail = ({
       console.log(e);
     },
   });
+
+  const addProductToShoppingCartMutation = useMutation(
+    addProductToShoppingCart,
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries('shopping-cart');
+      },
+      onError: (e: any) => {
+        console.log(e);
+      },
+    },
+  );
 
   const removeMutation = useMutation(removeFavorite, {
     onSuccess: () => {
@@ -50,8 +67,13 @@ export const ProductDetail = ({
     },
   });
 
+  const addProduct = () => {
+    console.log('Add product to shopping cart');
+    addProductToShoppingCartMutation.mutate(product?.data);
+  };
+
   const addFavorite = () => {
-    createMutation.mutate(product?.data);
+    createFavoriteMutation.mutate(product?.data);
 
     setIsFavorite(true);
 
@@ -97,7 +119,7 @@ export const ProductDetail = ({
       <Text style={styles.price}>{product?.data.price} €</Text>
       <Text style={styles.description}>{product?.data.description}</Text>
       <View style={styles.buttonContainer}>
-        <Button size="medium">
+        <Button size="medium" onPress={addProduct}>
           <Text>Añadir a la cesta</Text>
         </Button>
         <Split padding={7} />

@@ -29,6 +29,10 @@ const createProduct = (data: IProducts) => {
   return http.post('/products', data);
 };
 
+const addProductToShoppingCart = (data: IProducts) => {
+  return http.post('/shopping-cart', data);
+};
+
 const updateProduct = (id: string, data: IProducts) => {
   return http.put(`/products/${id}`, data);
 };
@@ -39,6 +43,10 @@ const removeProduct = (id: string) => {
 
 const removeProducts = () => {
   return http.delete('/products');
+};
+
+const removeProductToShoppingCart = (id: number) => {
+  return http.post(`/shopping-cart/${id}`);
 };
 
 const findProductByTitle = (title: string) => {
@@ -53,8 +61,10 @@ export {
   getGenres,
   getClothing,
   createProduct,
+  addProductToShoppingCart,
   updateProduct,
   removeProduct,
   removeProducts,
+  removeProductToShoppingCart,
   findProductByTitle,
 };
