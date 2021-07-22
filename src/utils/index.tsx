@@ -1,3 +1,5 @@
+import {IProducts} from '../models';
+
 export const getCurrentDate = () => {
   enum Month {
     enero,
@@ -50,4 +52,12 @@ export const findElementArray = (arr: any, id: string) => {
 
 export const getGenreName = (genreId: number) => {
   return genreId === 0 ? 'man' : genreId === 1 ? 'woman' : 'kids';
+};
+
+export const getSumOfProductPrices = (shoppingCartProducts: IProducts[]) => {
+  return shoppingCartProducts
+    .reduce((res: any, item: IProducts) => {
+      return res + item.price;
+    }, 0)
+    .toFixed(2);
 };
