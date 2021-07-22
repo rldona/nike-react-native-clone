@@ -25,6 +25,7 @@ export const ShoppingCartContent = ({navigation}: any) => {
     return navigation.addListener('focus', () => {
       // TODO: Montrar Loading...
       console.log('Montrar Loading...');
+
       refetch().then(() => {
         // TODO: Ocultar Loading...
         console.log('Ocultar Loading...');
@@ -51,6 +52,13 @@ export const ShoppingCartContent = ({navigation}: any) => {
     console.log('--- press button shopping cart ---');
   };
 
+  var sumOfPrices: number = shoppingCart?.data.reduce(
+    (res: any, item: IProducts) => {
+      return res + item.price;
+    },
+    0,
+  );
+
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.shoppingCartList}>
@@ -65,7 +73,7 @@ export const ShoppingCartContent = ({navigation}: any) => {
 
           <Split padding={10} />
 
-          <ShoppingCartSummary />
+          <ShoppingCartSummary total={sumOfPrices.toFixed(2)} />
         </View>
       </ScrollView>
 
