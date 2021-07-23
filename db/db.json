@@ -366,19 +366,6 @@
       "price": 74.99,
       "preview": "https://static.nike.com/a/images/c_limit,w_318,f_auto/t_product_v1/8ee6a54d-1075-43f8-9090-b7a794d0bd78/nikecourt-dri-fit-adv-rafa-camiseta-de-tenis-de-manga-corta-l0Nq9q.png",
       "backdrop": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/2b738b56-f205-450c-9ce7-2ce4306cdfbb/nikecourt-dri-fit-adv-rafa-camiseta-de-tenis-de-manga-corta-l0Nq9q.png"
-    },
-    {
-      "id": "5",
-      "type": "clothing",
-      "subType": "hoodies-and-sweatshirts",
-      "subTypeName": "Sudaderas con y sin capucha",
-      "genre": "man",
-      "genreName": "Hombre",
-      "title": "Nike Pro Therma-FIT ADV",
-      "description": "La sudadera con capucha Nike Pro Therma-FIT ADV combina calidez y transpirabilidad para mantener una temperatura cómoda durante el entrenamiento o la competición en las condiciones más frías.El innovador diseño de bolsillo permite guardar tus cosas de forma segura, incluso en las actividades más intensas.",
-      "price": 109.99,
-      "preview": "https://static.nike.com/a/images/c_limit,w_318,f_auto/t_product_v1/13be99db-cb5e-44ed-9401-a28053f29ab5/pro-adv-sudadera-con-capucha-de-tejido-fleece-X9cV1q.png",
-      "backdrop": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/d3e71ba7-9acd-43b3-aabb-2f49d42c2ebc/pro-adv-sudadera-con-capucha-de-tejido-fleece-X9cV1q.png"
     }
   ],
   "menu": {
