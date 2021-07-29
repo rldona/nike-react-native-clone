@@ -1,12 +1,16 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-export const ShoppingCartSummary = () => {
+interface Props {
+  totalPrice: string;
+}
+
+export const ShoppingCartSummary = ({totalPrice}: Props) => {
   return (
     <>
       <View style={styles.row}>
         <Text style={styles.subTotalText}>Subtotal</Text>
-        <Text style={styles.subTotalText}>89,99 €</Text>
+        <Text style={styles.subTotalText}>{totalPrice} €</Text>
       </View>
       <View style={styles.row}>
         <Text style={styles.subTotalText}>Envío</Text>
@@ -14,7 +18,7 @@ export const ShoppingCartSummary = () => {
       </View>
       <View style={styles.row}>
         <Text style={styles.totalText}>Total</Text>
-        <Text style={styles.totalText}>89,99 €</Text>
+        <Text style={styles.totalText}>{totalPrice} €</Text>
       </View>
     </>
   );

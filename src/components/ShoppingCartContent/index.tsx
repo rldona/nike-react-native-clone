@@ -13,6 +13,7 @@ import {ShoppingCartPromoCode} from '../ShoppingCartPromoCode';
 import {ShoppingCartItem} from '../ShoppingCartItem/index';
 import {ShoppingCartSummary} from '../ShoppingCartSummary';
 import {IProducts} from '../../models';
+import {getSumOfProductPrices} from '../../utils';
 
 export const ShoppingCartContent = ({navigation}: any) => {
   const {
@@ -21,12 +22,14 @@ export const ShoppingCartContent = ({navigation}: any) => {
     data: shoppingCart,
   } = useQuery('shopping-cart', getShoppingCart);
 
+  const onPress = () => {
+    console.log('--- press button shopping cart ---');
+  };
+
   useEffect(() => {
     return navigation.addListener('focus', () => {
-      // TODO: Montrar Loading...
       console.log('Montrar Loading...');
       refetch().then(() => {
-        // TODO: Ocultar Loading...
         console.log('Ocultar Loading...');
       });
     });
@@ -47,10 +50,6 @@ export const ShoppingCartContent = ({navigation}: any) => {
     );
   }
 
-  const onPress = () => {
-    console.log('--- press button shopping cart ---');
-  };
-
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.shoppingCartList}>
@@ -65,7 +64,9 @@ export const ShoppingCartContent = ({navigation}: any) => {
 
           <Split padding={10} />
 
-          <ShoppingCartSummary />
+          <ShoppingCartSummary
+            totalPrice={getSumOfProductPrices(shoppingCart?.data)}
+          />
         </View>
       </ScrollView>
 

@@ -24,10 +24,8 @@ export const FavoritesContent = ({navigation}: any) => {
 
   useEffect(() => {
     return navigation.addListener('focus', () => {
-      // TODO: Montrar Loading...
       console.log('Montrar Loading...');
       refetch().then(() => {
-        // TODO: Ocultar Loading...
         console.log('Ocultar Loading...');
       });
     });

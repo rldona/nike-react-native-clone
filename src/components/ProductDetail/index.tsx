@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Image, StyleSheet, Text, ScrollView, View} from 'react-native';
+import {Image, StyleSheet, Text, ScrollView, View, Modal} from 'react-native';
 import Snackbar from 'react-native-snackbar';
 
 import {QueryClient, useQuery, useMutation} from 'react-query';
@@ -21,6 +21,8 @@ import {
   removeFavorite,
 } from '../../services/favoritesService';
 
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
+
 const queryClient = new QueryClient();
 
 export const ProductDetail = ({
@@ -30,6 +32,7 @@ export const ProductDetail = ({
   navigation,
 }: any) => {
   const [isFavorite, setIsFavorite] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
 
   const {data: favorites} = useQuery('favorites', getFavorites);
 
@@ -69,6 +72,10 @@ export const ProductDetail = ({
 
   const addProduct = () => {
     console.log('Add product to shopping cart');
+    setModalVisible(true);
+    setTimeout(() => {
+      setModalVisible(false);
+    }, 2000);
     addProductToShoppingCartMutation.mutate(product?.data);
   };
 
@@ -143,6 +150,19 @@ export const ProductDetail = ({
           </Button>
         )}
       </View>
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={modalVisible}
+        statusBarTranslucent={true}>
+        <View style={styles.modalView}>
+          <View style={styles.modalContent}>
+            <EvilIcons name="check" size={90} color="#FFF" />
+            <Text style={styles.modalTitle}>Añadido a la cesta</Text>
+            <Text style={styles.modalSubTitle}>(1 producto en total)</Text>
+          </View>
+        </View>
+      </Modal>
     </ScrollView>
   );
 };
@@ -150,6 +170,28 @@ export const ProductDetail = ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  modalView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignContent: 'center',
+    flexDirection: 'column',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+  },
+  modalContent: {
+    alignItems: 'center',
+  },
+  modalTitle: {
+    color: '#FFF',
+    fontWeight: '600',
+    marginTop: 20,
+    marginBottom: 10,
+    fontSize: 18,
+  },
+  modalSubTitle: {
+    color: '#FFF',
+    fontSize: 16,
   },
   scrollViewContainer: {
     paddingBottom: 20,
