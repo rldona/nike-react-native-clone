@@ -21,6 +21,7 @@ export const ShoppingCartPromoCode = () => {
             placeholder="Código promocional"
             value={name}
             onChangeText={txtHandler}
+            selectionColor="#000"
           />
           <Pressable style={styles.buttonCode}>
             <Text style={styles.textButtonCode}>Aplicar</Text>
@@ -73,7 +74,7 @@ const styles = StyleSheet.create({
   },
   textButtonCode: {
     color: '#FFF',
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: '800',
     textTransform: 'uppercase',
     textAlign: 'center',
