@@ -9,7 +9,7 @@ export const ShoppingCartPromoCode = () => {
   };
 
   return (
-    <View>
+    <>
       <View style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.text}>¿Tienes un código promocional?</Text>
@@ -28,7 +28,7 @@ export const ShoppingCartPromoCode = () => {
           </Pressable>
         </View>
       </View>
-    </View>
+    </>
   );
 };
 

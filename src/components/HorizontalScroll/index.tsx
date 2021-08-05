@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, StyleSheet, Text, View} from 'react-native';
+import {FlatList, StyleSheet, Text} from 'react-native';
 
 import {Product} from '../Product';
 import {IProducts} from '../../models/index';
@@ -24,7 +24,7 @@ export const HorizontalScroll = ({title, products}: Props) => {
   }
 
   return (
-    <View>
+    <>
       <Text style={styles.title}>{title}</Text>
 
       <FlatList
@@ -37,7 +37,7 @@ export const HorizontalScroll = ({title, products}: Props) => {
         contentContainerStyle={styles.horizontalScroll}
         ItemSeparatorComponent={() => <Text style={styles.text} />}
       />
-    </View>
+    </>
   );
 };
 

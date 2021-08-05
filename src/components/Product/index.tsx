@@ -93,13 +93,13 @@ export const Product = (product: IProducts) => {
       {isFavoriteEdited ? (
         <View style={styles.favoriteIcon}>
           <TouchableOpacity activeOpacity={1} onPress={onPress}>
-            <View>
+            <>
               {isFavorite ? (
                 <MaterialIcons name="heart" size={20} color="#000" />
               ) : (
                 <EvilIcons name="heart" size={24} color="#000" />
               )}
-            </View>
+            </>
           </TouchableOpacity>
         </View>
       ) : null}

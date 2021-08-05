@@ -353,6 +353,19 @@
       "price": 139.99,
       "preview": "https://static.nike.com/a/images/c_limit,w_318,f_auto/t_product_v1/877fbb34-2c55-4f8f-a45f-69efb4cbfdec/primera-equipacion-vapor-match-portugal-2020-camiseta-de-futbol-n1k2sp.png",
       "backdrop": "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,b_rgb:f5f5f5/877fbb34-2c55-4f8f-a45f-69efb4cbfdec/primera-equipacion-vapor-match-portugal-2020-camiseta-de-futbol-n1k2sp.png"
+    },
+    {
+      "id": "10",
+      "type": "clothing",
+      "subType": "hoodies-and-sweatshirts",
+      "subTypeName": "Sudadera con capucha y cremallera completa ",
+      "genre": "woman",
+      "genreName": "Mujer",
+      "title": "Nike Sportswear Tech Fleece Windrunner",
+      "description": "La sudadera con capucha Nike Sportswear Tech Fleece está confeccionada con un tejido separador de doble cara que aprovecha el calor corporal para retener la calidez sin añadir peso ni volumen.",
+      "price": 99.99,
+      "preview": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/f9d75efa-ec0b-4bb5-b7d5-6b19ae97d0ef/sportswear-tech-fleece-windrunner-sudadera-con-capucha-con-cremallera-completa-3jcHXn.png",
+      "backdrop": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,b_rgb:f5f5f5/a2340a03-679e-4084-9c37-928cf9cf3691/sportswear-tech-fleece-windrunner-sudadera-con-capucha-con-cremallera-completa-3jcHXn.png"
     }
   ],
   "menu": {
